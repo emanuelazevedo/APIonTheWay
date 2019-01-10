@@ -209,7 +209,7 @@ fetch(url, {
 <!-- END_4bb7fb4a7501d3cb1ed21acfc3b205a9 -->
 
 <!-- START_32f44fe1023a6498ad01976b2aa324e9 -->
-## Display a listing of the resource.
+## Listar todas as Viagens
 
 > Example request:
 
@@ -292,7 +292,7 @@ fetch(url, {
 <!-- END_32f44fe1023a6498ad01976b2aa324e9 -->
 
 <!-- START_889352be0fa4105fec64f682987d4a0d -->
-## Store a newly created resource in storage.
+## Criar uma Viagem
 
 > Example request:
 
@@ -324,7 +324,7 @@ fetch(url, {
 <!-- END_889352be0fa4105fec64f682987d4a0d -->
 
 <!-- START_6925d628aa5b82b8d427f9443679a82a -->
-## Display the specified resource.
+## Mostrar uma Viagem
 
 > Example request:
 
@@ -375,7 +375,7 @@ fetch(url, {
 <!-- END_6925d628aa5b82b8d427f9443679a82a -->
 
 <!-- START_dbc331269073970ac565ffd3d05b57d6 -->
-## Update the specified resource in storage.
+## Editar uma Viagem
 
 > Example request:
 
@@ -409,7 +409,7 @@ fetch(url, {
 <!-- END_dbc331269073970ac565ffd3d05b57d6 -->
 
 <!-- START_6b2fec7ca511aa269e8d50892a874158 -->
-## Remove the specified resource from storage.
+## Remover uma Viagem
 
 > Example request:
 
@@ -441,7 +441,8 @@ fetch(url, {
 <!-- END_6b2fec7ca511aa269e8d50892a874158 -->
 
 <!-- START_102750eaa98309a278b18c450a32339a -->
-## api/viagem/search
+## Pesquisar por Viagens
+
 > Example request:
 
 ```bash
@@ -472,7 +473,7 @@ fetch(url, {
 <!-- END_102750eaa98309a278b18c450a32339a -->
 
 <!-- START_07e7f3ae367cb99564afa991e133a461 -->
-## Display a listing of the resource.
+## Listar todos os Tipos
 
 > Example request:
 
@@ -612,7 +613,7 @@ fetch(url, {
 <!-- END_208c69de33e9cfaba5c8dccd74aebec5 -->
 
 <!-- START_7c0de1b3482697b6ea2f65ccaa6f0c49 -->
-## Remove the specified resource from storage.
+## Remover um Tipo
 
 > Example request:
 
@@ -644,7 +645,7 @@ fetch(url, {
 <!-- END_7c0de1b3482697b6ea2f65ccaa6f0c49 -->
 
 <!-- START_698405941abcd460cfc5342a0228b65d -->
-## Display a listing of the resource.
+## Listar todos os Produtos
 
 > Example request:
 
@@ -722,7 +723,7 @@ fetch(url, {
 <!-- END_698405941abcd460cfc5342a0228b65d -->
 
 <!-- START_a2004754d7dd7a2d32cdb988d6bdfee0 -->
-## Store a newly created resource in storage.
+## Criar um Produto
 
 > Example request:
 
@@ -754,7 +755,7 @@ fetch(url, {
 <!-- END_a2004754d7dd7a2d32cdb988d6bdfee0 -->
 
 <!-- START_7f8516938ae1193eb85c8f75ea379fe2 -->
-## Display the specified resource.
+## Mostrar um Produto
 
 > Example request:
 
@@ -800,7 +801,7 @@ fetch(url, {
 <!-- END_7f8516938ae1193eb85c8f75ea379fe2 -->
 
 <!-- START_97abbcf4cd4371b5349a47c0220e6526 -->
-## Update the specified resource in storage.
+## Editar um Produto
 
 > Example request:
 
@@ -834,7 +835,7 @@ fetch(url, {
 <!-- END_97abbcf4cd4371b5349a47c0220e6526 -->
 
 <!-- START_762b93bd07a15358325db32e6e6bff1b -->
-## Remove the specified resource from storage.
+## Remover um Produto
 
 > Example request:
 

@@ -16,7 +16,7 @@ use App\Produto;
 class ViagemController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Listar todas as Viagens
      *
      * @return \Illuminate\Http\Response
      */
@@ -38,7 +38,7 @@ class ViagemController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Criar uma Viagem
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -72,7 +72,7 @@ class ViagemController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Mostrar uma Viagem
      *
      * @param  \App\Viagem  $viagem
      * @return \Illuminate\Http\Response
@@ -96,7 +96,7 @@ class ViagemController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Editar uma Viagem
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Viagem  $viagem
@@ -118,7 +118,7 @@ class ViagemController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remover uma Viagem
      *
      * @param  \App\Viagem  $viagem
      * @return \Illuminate\Http\Response
@@ -134,6 +134,13 @@ class ViagemController extends Controller
         ], 200);
     }
 
+
+    /**
+     * Pesquisar por Viagens
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function search(Request $request){
         $listaViagens = DB::table('viagems')
         ->where('tipo_id', 1)

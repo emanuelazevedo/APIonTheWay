@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class TipoController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Listar todos os Tipos
      *
      * @return \Illuminate\Http\Response
      */
@@ -73,7 +73,7 @@ class TipoController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remover um Tipo
      *
      * @param  \App\Tipo  $tipo
      * @return \Illuminate\Http\Response

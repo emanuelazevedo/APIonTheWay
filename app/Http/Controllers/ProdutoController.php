@@ -11,7 +11,7 @@ use Validator;
 class ProdutoController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Listar todos os Produtos
      *
      * @return \Illuminate\Http\Response
      */
@@ -33,7 +33,7 @@ class ProdutoController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Criar um Produto
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class ProdutoController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Mostrar um Produto
      *
      * @param  \App\Produto  $produto
      * @return \Illuminate\Http\Response
@@ -75,7 +75,7 @@ class ProdutoController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Editar um Produto
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Produto  $produto
@@ -96,7 +96,7 @@ class ProdutoController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remover um Produto
      *
      * @param  \App\Produto  $produto
      * @return \Illuminate\Http\Response
