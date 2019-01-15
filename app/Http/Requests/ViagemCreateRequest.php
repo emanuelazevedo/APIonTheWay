@@ -35,6 +35,7 @@ class ViagemCreateRequest extends FormRequest
           'user_id' => 'required',
           // 'produto_id' => 'required',
           'tipo_id' => 'required',
+          
         ];
     }
 

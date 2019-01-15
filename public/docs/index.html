@@ -76,8 +76,8 @@ fetch(url, {
         "name": "emanuel",
         "email": "emanuel@mail",
         "email_verified_at": null,
-        "created_at": "2019-01-06 17:33:41",
-        "updated_at": "2019-01-06 17:33:41"
+        "created_at": "2019-01-15 14:52:54",
+        "updated_at": "2019-01-15 14:52:54"
     }
 ]</code></pre>
 <h3>HTTP Request</h3>
@@ -132,8 +132,8 @@ fetch(url, {
     "name": "emanuel",
     "email": "emanuel@mail",
     "email_verified_at": null,
-    "created_at": "2019-01-06 17:33:41",
-    "updated_at": "2019-01-06 17:33:41"
+    "created_at": "2019-01-15 14:52:54",
+    "updated_at": "2019-01-15 14:52:54"
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/user/{user}</code></p>
@@ -215,11 +215,28 @@ fetch(url, {
         "horaInicio": "00:00:00",
         "horaFim": "12:00:00",
         "estado": "pendente",
+        "preco": 10,
         "user_id": 1,
         "produto_id": null,
         "tipo_id": 1,
-        "created_at": "2019-01-06 17:33:49",
-        "updated_at": "2019-01-06 17:33:49"
+        "created_at": "2019-01-15 14:56:25",
+        "updated_at": "2019-01-15 14:56:25"
+    },
+    {
+        "id": 2,
+        "origem": "aveiro",
+        "destino": "porto",
+        "dataInicio": "2019-01-02",
+        "dataFim": "2019-01-02",
+        "horaInicio": "00:00:00",
+        "horaFim": "12:00:00",
+        "estado": "pendente",
+        "preco": null,
+        "user_id": 2,
+        "produto_id": null,
+        "tipo_id": 1,
+        "created_at": "2019-01-15 14:56:46",
+        "updated_at": "2019-01-15 14:56:46"
     },
     {
         "id": 3,
@@ -230,14 +247,15 @@ fetch(url, {
         "horaInicio": "00:00:00",
         "horaFim": "12:00:00",
         "estado": "pendente",
-        "user_id": 1,
+        "preco": null,
+        "user_id": 2,
         "produto_id": null,
-        "tipo_id": 2,
-        "created_at": "2019-01-06 18:09:33",
-        "updated_at": "2019-01-06 18:09:33"
+        "tipo_id": 1,
+        "created_at": "2019-01-15 14:58:10",
+        "updated_at": "2019-01-15 14:58:10"
     },
     {
-        "id": 6,
+        "id": 4,
         "origem": "aveiro",
         "destino": "porto",
         "dataInicio": "2019-01-02",
@@ -245,11 +263,12 @@ fetch(url, {
         "horaInicio": "00:00:00",
         "horaFim": "12:00:00",
         "estado": "pendente",
+        "preco": null,
         "user_id": 1,
-        "produto_id": 4,
+        "produto_id": 1,
         "tipo_id": 2,
-        "created_at": "2019-01-06 18:37:53",
-        "updated_at": "2019-01-06 18:37:53"
+        "created_at": "2019-01-15 14:59:52",
+        "updated_at": "2019-01-15 14:59:52"
     }
 ]</code></pre>
 <h3>HTTP Request</h3>
@@ -308,11 +327,19 @@ fetch(url, {
     "horaInicio": "00:00:00",
     "horaFim": "12:00:00",
     "estado": "pendente",
+    "preco": 10,
     "user_id": 1,
     "produto_id": null,
     "tipo_id": 1,
-    "created_at": "2019-01-06 17:33:49",
-    "updated_at": "2019-01-06 17:33:49"
+    "created_at": "2019-01-15 14:56:25",
+    "updated_at": "2019-01-15 14:56:25",
+    "tipo": {
+        "id": 1,
+        "tipoViagem": "viagem criada",
+        "created_at": "2019-01-15 14:52:54",
+        "updated_at": "2019-01-15 14:52:54"
+    },
+    "produto": null
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/viagem/{viagem}</code></p>
@@ -529,42 +556,10 @@ fetch(url, {
     {
         "id": 1,
         "nome": "cadeira",
-        "tamanho": 10,
-        "peso": 10,
-        "preco": 10,
+        "tamanho": "pequeno",
         "foto": null,
-        "created_at": "2019-01-06 18:09:33",
-        "updated_at": "2019-01-06 18:09:33"
-    },
-    {
-        "id": 2,
-        "nome": "cadeira",
-        "tamanho": 10,
-        "peso": 10,
-        "preco": 10,
-        "foto": null,
-        "created_at": "2019-01-06 18:11:23",
-        "updated_at": "2019-01-06 18:11:23"
-    },
-    {
-        "id": 3,
-        "nome": "cadeira",
-        "tamanho": 10,
-        "peso": 10,
-        "preco": 10,
-        "foto": null,
-        "created_at": "2019-01-06 18:14:06",
-        "updated_at": "2019-01-06 18:14:06"
-    },
-    {
-        "id": 4,
-        "nome": "cadeira",
-        "tamanho": 10,
-        "peso": 10,
-        "preco": 10,
-        "foto": null,
-        "created_at": "2019-01-06 18:37:53",
-        "updated_at": "2019-01-06 18:37:53"
+        "created_at": "2019-01-15 14:59:52",
+        "updated_at": "2019-01-15 14:59:52"
     }
 ]</code></pre>
 <h3>HTTP Request</h3>
@@ -617,12 +612,10 @@ fetch(url, {
 <pre><code class="language-json">{
     "id": 1,
     "nome": "cadeira",
-    "tamanho": 10,
-    "peso": 10,
-    "preco": 10,
+    "tamanho": "pequeno",
     "foto": null,
-    "created_at": "2019-01-06 18:09:33",
-    "updated_at": "2019-01-06 18:09:33"
+    "created_at": "2019-01-15 14:59:52",
+    "updated_at": "2019-01-15 14:59:52"
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/produto/{produto}</code></p>

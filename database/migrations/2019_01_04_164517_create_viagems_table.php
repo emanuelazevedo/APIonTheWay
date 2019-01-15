@@ -27,6 +27,8 @@ class CreateViagemsTable extends Migration
 
             $table->string('estado');
 
+            $table->integer('preco')->nullable();
+
             $table->integer('user_id')->unsigned();
             // $table->foreign('user_id')->references('id')->on('users');//campo user_id referencia id da tabela user
 

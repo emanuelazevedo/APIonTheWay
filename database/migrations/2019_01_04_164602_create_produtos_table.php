@@ -18,15 +18,11 @@ class CreateProdutosTable extends Migration
 
             $table->string('nome');
 
-            $table->integer('tamanho');
-
-            $table->integer('peso');
-
-            $table->integer('preco');
+            $table->string('tamanho');
 
             $table->string('foto')->nullable();
 
-            
+
             $table->timestamps();
         });
     }

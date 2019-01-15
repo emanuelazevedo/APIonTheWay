@@ -51,7 +51,7 @@ class ViagemController extends Controller
 
         // return Response(['teste'=>$request->tipo_id]);
         if($request->tipo_id == 2){
-            $dataProduto = $request->only(['peso', 'preco', 'tamanho', 'nome']);
+            $dataProduto = $request->only(['tamanho', 'nome']);
             $produto = Produto::create($dataProduto);
             $dataViagem['produto_id'] = $produto->id;
             $viagem = Viagem::create($dataViagem);
@@ -62,6 +62,7 @@ class ViagemController extends Controller
               'msg' => 'ok'
             ], 200);
         }
+        $dataViagem['preco'] = $request->input('preco');
         $viagem = Viagem::create($dataViagem);
         return Response([
           'status' => 0,
@@ -80,6 +81,8 @@ class ViagemController extends Controller
     public function show(Viagem $viagem)
     {
         //
+        $viagem->tipo;
+        $viagem->produto;
         return $viagem;
     }
 
