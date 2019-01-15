@@ -25,5 +25,10 @@ class TipoTableSeeder extends Seeder
           'email' => 'emanuel@mail',
           'password' => '123123'
         ]);
+        \App\User::create([
+            'name' => 'leo',
+            'email' => 'leo@mail',
+            'password' => '123123'
+        ]);
     }
 }
