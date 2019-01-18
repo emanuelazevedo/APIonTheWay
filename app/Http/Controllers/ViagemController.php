@@ -23,7 +23,14 @@ class ViagemController extends Controller
     public function index()
     {
         //
-        $viagem = Viagem::all();
+        $viagens = Viagem::all();
+        $viagem = array();
+        foreach($viagens as $trip){
+            $trip->tipo;
+            $trip->produto;
+            $viagem[] = $trip;
+        }
+
         return $viagem;
     }
 
@@ -49,7 +56,7 @@ class ViagemController extends Controller
         $dataViagem = $request->only(['origem', 'destino', 'dataInicio', 'dataFim', 'horaInicio', 'horaFim', 'user_id', 'tipo_id']);
         $dataViagem['estado'] = 'pendente';
 
-        // return Response(['teste'=>$request->tipo_id]);
+        // pedido de viagem
         if($request->tipo_id == 2){
             $dataProduto = $request->only(['tamanho', 'nome']);
             $produto = Produto::create($dataProduto);
@@ -62,6 +69,7 @@ class ViagemController extends Controller
               'msg' => 'ok'
             ], 200);
         }
+        // viagem criada
         $dataViagem['preco'] = $request->input('preco');
         $viagem = Viagem::create($dataViagem);
         return Response([
