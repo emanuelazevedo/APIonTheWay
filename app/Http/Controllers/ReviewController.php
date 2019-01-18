@@ -15,6 +15,8 @@ class ReviewController extends Controller
     public function index()
     {
         //
+        $review = Review::all();
+        return $review;
     }
 
     /**
@@ -36,6 +38,21 @@ class ReviewController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->only(['nota', 'comentario', 'user_id', 'viagems_id']);
+        $viagemId = $request->input('viagems_id');
+        $viagem = Viagem::find($viagemId);
+        if($viagem['estado'] != 'concluido'){
+            return Response([
+                'status' => 1,
+                'msg' => 'A viagem ainda está por concluir'
+              ], 500);
+        }
+        $review = Review::create($data);
+        return Response([
+            'status' => 0,
+            'review' => $review,
+            'msg' => 'ok'
+          ], 200);
     }
 
     /**
@@ -47,6 +64,8 @@ class ReviewController extends Controller
     public function show(Review $review)
     {
         //
+        $review->user;
+        return $review;
     }
 
     /**

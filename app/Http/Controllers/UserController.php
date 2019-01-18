@@ -89,7 +89,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         //
-        $articles = $user->article;
+        $articles = $user->viagem;
         return $user;
     }
 

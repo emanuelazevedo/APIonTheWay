@@ -9,7 +9,6 @@ use App\Http\Requests\ViagemUpdateRequest;
 use Validator;
 
 use Illuminate\Support\Facades\DB;
-use Illuminate\Http\JsonResponse;
 
 use App\Produto;
 
@@ -116,6 +115,7 @@ class ViagemController extends Controller
     public function update(ViagemUpdateRequest $request, Viagem $viagem)
     {
         //
+        //estados sao: pendente, em viagem, concluido
         $data = $request->only(['estado']);
 
         $viagem->estado = $data['estado'];
