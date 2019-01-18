@@ -23,4 +23,10 @@ class Viagem extends Model
     {
         return $this->belongsTo(Produto::class);
     }
+
+    public function review()
+    {
+        return $this->hasMany(Review::class);
+    }
+    
 }

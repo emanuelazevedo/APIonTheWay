@@ -32,4 +32,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Viagem::class);
     }
+
+    public function review()
+    {
+        return $this->hasMany(Review::class);
+    }
 }
