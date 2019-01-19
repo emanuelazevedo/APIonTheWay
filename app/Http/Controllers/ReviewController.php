@@ -47,12 +47,6 @@ class ReviewController extends Controller
                 'msg' => 'A viagem já está avaliada'
               ], 500);
         }
-        elseif($viagem['estado'] != 'concluido'){
-            return Response([
-                'status' => 1,
-                'msg' => 'A viagem ainda está por concluir'
-              ], 500);
-        }
         $review = Review::create($data);
         return Response([
             'status' => 0,
