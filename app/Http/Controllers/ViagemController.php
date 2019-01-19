@@ -11,6 +11,7 @@ use Validator;
 use Illuminate\Support\Facades\DB;
 
 use App\Produto;
+use Image;
 
 class ViagemController extends Controller
 {
@@ -58,7 +59,18 @@ class ViagemController extends Controller
         // pedido de viagem
         if($request->tipo_id == 2){
             $dataProduto = $request->only(['tamanho', 'nome']);
+
             $produto = Produto::create($dataProduto);
+
+            if($request->hasFile('foto')){
+                $foto = $request->file('foto');
+                $filename = time() . "." . $foto->getClientOriginalExtension();
+                Image::make($foto)->resize(300, 300)->save(public_path('uploads/produtos' . $filename));
+                
+                $produto->foto = $filename;
+                $produto->save();
+            }
+
             $dataViagem['produto_id'] = $produto->id;
             $viagem = Viagem::create($dataViagem);
             return Response([
@@ -115,7 +127,7 @@ class ViagemController extends Controller
     public function update(ViagemUpdateRequest $request, Viagem $viagem)
     {
         //
-        //estados sao: pendente, em viagem, concluido
+        //estados sao: pendente, em viagem, concluido, avaliada
         $data = $request->only(['estado']);
 
         $viagem->estado = $data['estado'];

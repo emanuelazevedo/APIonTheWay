@@ -41,7 +41,13 @@ class ReviewController extends Controller
         $data = $request->only(['nota', 'comentario', 'user_id', 'viagems_id']);
         $viagemId = $request->input('viagems_id');
         $viagem = Viagem::find($viagemId);
-        if($viagem['estado'] != 'concluido'){
+        if($viagem['estado'] == 'avaliado'){
+            return Response([
+                'status' => 1,
+                'msg' => 'A viagem já está avaliada'
+              ], 500);
+        }
+        elseif($viagem['estado'] != 'concluido'){
             return Response([
                 'status' => 1,
                 'msg' => 'A viagem ainda está por concluir'
