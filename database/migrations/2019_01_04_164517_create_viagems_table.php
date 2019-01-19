@@ -38,6 +38,7 @@ class CreateViagemsTable extends Migration
             $table->integer('tipo_id')->unsigned();
             // $table->foreign('tipo_id')->references('id')->on('tipos');//campo tipo_id referencia id da tabela tipo
 
+            $table->integer('viagems_id')->unsigned()->nullable();
 
             $table->timestamps();
         });

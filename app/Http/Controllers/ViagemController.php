@@ -176,4 +176,30 @@ class ViagemController extends Controller
 
         return Response(array('listaViagens' => $listaViagens));
     }
+
+    /**
+     * Associar Pedido de Viagem a Viagem Criada
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function associar(Request $request){
+        $data = $request->only(['idViagemCriada', 'idPedidoViagem']);
+
+        $viagem = Viagem::find($data['idViagemCriada']);
+
+        $viagem->viagems_id = $data['idPedidoViagem'];
+        $viagem->save();
+
+        $viagem = Viagem::find($data['idPedidoViagem']);
+
+        $viagem->viagems_id = $data['idViagemCriada'];
+        $viagem->save();
+
+        return Response([
+            'status' => 0,
+            'data' => $viagem,
+            'msg' => 'ok'
+          ], 200);
+    }
 }
