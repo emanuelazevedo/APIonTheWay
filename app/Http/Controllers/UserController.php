@@ -106,14 +106,21 @@ class UserController extends Controller
      */
     public function update(UserUpdateRequest $request, User $user)
     {
-        //
-        // return Response(['teste' => 'oi']);
+        
         $data = $request->only(['name', 'email', 'password']);
-
 
         $user->name = $data['name'];
         $user->email = $data['email'];
         $user->password = bcrypt($data['password']);
+
+        if($request->hasFile('avatar')){
+            $avatar = $request->file('avatar');
+            $filename = time() . "." . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300, 300)->save(public_path('uploads/avatar' . $filename));
+            
+            $user->avatar = $filename;
+        }
+
         $user->save();
 
         return Response([
