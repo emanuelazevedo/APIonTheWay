@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Validator;
 use Auth;
 
+use Image;
+
 class UserController extends Controller
 {
     //
@@ -50,23 +52,14 @@ class UserController extends Controller
 
         $data = $request->only(['name', 'email', 'password']);
 
-        // $validator = Validator::make($data,
-        // [
-        //   'name' => 'required|max:225',
-        //   'email' => 'required|email|unique:users',
-        //   'password' => 'required|min:3',
-        // ],
-        // [
-        //   'name.required' => 'O campo nome é obrigatorio',
-        // ]);
-        //
-        // if($validator->fails()){
-        //   return Response([
-        //     'status' => 1,
-        //     'data' =>  $validator->errors()->all(),
-        //     'msg' => 'error'
-        //   ], 400);
-        // }
+        if($request->hasFile('avatar')){
+            $avatar = $request->file('avatar');
+            $filename = time() . "." . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300, 300)->save(public_path('uploads/avatar' . $filename));
+            
+            $data['avatar'] = $filename;
+            // $data->save();
+        }
 
         $data['password'] = bcrypt($data['password']);
 
