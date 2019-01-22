@@ -131,16 +131,11 @@ class ViagemController extends Controller
         $data = $request->only(['estado']);
         $viagem->estado = $data['estado'];
         
-        $viagemAssociada = Viagem::find($viagem->viagems_id);
-        $viagemAssociada->estado = $data['estado'];
-        
         $viagem->save();
-        $viagemAssociada->save();
 
         return Response([
           'status' => 0,
-          'viagemPedido' => $viagemAssociada,
-          'viagemCriada' => $viagem,
+          'data' => $viagem,
           'msg' => 'ok'
         ], 200);
     }
@@ -182,32 +177,5 @@ class ViagemController extends Controller
         return Response(array('listaViagens' => $listaViagens));
     }
 
-    /**
-     * Associar Pedido de Viagem a Viagem Criada
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function associar(Request $request){
-        $data = $request->only(['idViagemCriada', 'idPedidoViagem']);
-
-        $viagemCriada = Viagem::find($data['idViagemCriada']);
-
-        $viagemCriada->viagems_id = $data['idPedidoViagem'];
-        $viagemCriada->estado = 'em viagem';
-        $viagemCriada->save();
-
-        $viagemPedido = Viagem::find($data['idPedidoViagem']);
-
-        $viagemPedido->viagems_id = $data['idViagemCriada'];
-        $viagemPedido->estado = 'em viagem';
-        $viagemPedido->save();
-
-        return Response([
-            'status' => 0,
-            'viagemPedido' => $viagemPedido,
-            'viagemCriada' => $viagemCriada,
-            'msg' => 'ok'
-          ], 200);
-    }
+    
 }

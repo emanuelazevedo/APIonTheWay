@@ -25,8 +25,6 @@ Route::resource('viagem', 'ViagemController');
 Route::post('viagem/search', 'ViagemController@search');
 //localhost:8000/api/viagem/aveiro/porto/2019-01-01/2019-01-01
 
-Route::post('viagem/associar', 'ViagemController@associar');
-
 Route::resource('tipo', 'TipoController');
 
 Route::resource('produto', 'ProdutoController');
