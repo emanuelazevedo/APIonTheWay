@@ -58,7 +58,6 @@ class UserController extends Controller
             Image::make($avatar)->resize(300, 300)->save(public_path('uploads/avatar' . $filename));
             
             $data['avatar'] = $filename;
-            // $data->save();
         }
 
         $data['password'] = bcrypt($data['password']);
