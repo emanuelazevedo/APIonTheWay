@@ -30,3 +30,5 @@ Route::resource('tipo', 'TipoController');
 Route::resource('produto', 'ProdutoController');
 
 Route::resource('review', 'ReviewController');
+
+Route::post('user/media', 'UserController@calcMediaReview');

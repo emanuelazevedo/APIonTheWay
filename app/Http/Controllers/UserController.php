@@ -10,6 +10,8 @@ use Validator;
 use Auth;
 
 use Image;
+use App\Review;
+
 
 class UserController extends Controller
 {
@@ -147,6 +149,27 @@ class UserController extends Controller
         ], 200);
 
     }
+
+    /**
+     * Obtenção da média das Reviews de um User
+     *
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function calcMediaReview(Request $request)
+    {
+        //
+        $data = $request->only(['id']);
+        dd($data);
+        $reviews = Review::where('user_id', 1);
+        return Response([
+            'status' => 0,
+            'data' => $reviews,
+            'msg' => 'ok'
+          ], 200);
+
+    }
+
 
     public function getAuthUser(){
       return Auth::user();
