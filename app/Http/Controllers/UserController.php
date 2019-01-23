@@ -160,8 +160,8 @@ class UserController extends Controller
     {
         //
         $data = $request->only(['id']);
-        dd($data);
-        $reviews = Review::where('user_id', 1);
+        
+        $reviews = Review::where('user_id', $data['id'])->avg('nota');
         return Response([
             'status' => 0,
             'data' => $reviews,
