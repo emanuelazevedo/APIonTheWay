@@ -27,7 +27,7 @@ class ProdutoCreateRequest extends FormRequest
     {
       return [
         'tamanho' => 'required',
-        'nome' => 'required',
+        'nome' => 'required|max:50',
         'foto' => 'nullable'
       ];
     }
@@ -47,6 +47,7 @@ class ProdutoCreateRequest extends FormRequest
      return[
        'tamanho.required' => 'Tamanho é necessario',
        'nome.required' => 'Nome é necessario',
+       'nome.max' => 'O nome do produto é demasiado comprido',
      ];
     }
 }

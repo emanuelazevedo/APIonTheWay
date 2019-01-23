@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Review;
 use Illuminate\Http\Request;
+use App\Http\Requests\ReviewCreateRequest;
+
+use App\Viagem;
 
 class ReviewController extends Controller
 {
@@ -35,7 +38,7 @@ class ReviewController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ReviewCreateRequest $request)
     {
         //
         $data = $request->only(['nota', 'comentario', 'user_id', 'viagems_id']);

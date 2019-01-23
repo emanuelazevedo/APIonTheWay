@@ -26,7 +26,7 @@ class ProdutoUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'viagem_id' => 'required|max:225',
+            'viagem_id' => 'required',
         ];
     }
 

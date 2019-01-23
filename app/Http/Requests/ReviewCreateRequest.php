@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class ReviewCreateRequest extends FormRequest
 {
@@ -24,9 +26,10 @@ class ReviewCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'nota' => 'required',
+            'nota' => 'required|integer|between:1, 5',
             'user_id' => 'required',
-            'viagems_id' => 'required'
+            'viagems_id' => 'required',
+            'comentario' => 'nullable',
         ];
     }
 
@@ -46,6 +49,8 @@ class ReviewCreateRequest extends FormRequest
           'nota.required' => 'Nota é necessario',
           'user_id.required' => 'User é necessario, isto nao devia aparecer',
           'viagems_id.required' => 'Viagem é necessario, isto nao devia aparecer',
+          'nota.between' => 'A nota é suposto ser entre 1 e 5',
+          'nota.integer' => 'A nota é suposto ser um numero inteiro',
         ];
     }
 }
