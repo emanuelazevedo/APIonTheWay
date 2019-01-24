@@ -76,16 +76,27 @@ fetch(url, {
         "name": "emanuel",
         "email": "emanuel@mail",
         "email_verified_at": null,
-        "created_at": "2019-01-19 21:57:19",
-        "updated_at": "2019-01-19 21:57:19"
+        "avatar": "default-avatar.png",
+        "created_at": "2019-01-22 15:12:11",
+        "updated_at": "2019-01-22 15:12:11"
     },
     {
         "id": 2,
         "name": "leo",
-        "email": "leo@mail",
+        "email": "meumail@mail.com",
         "email_verified_at": null,
-        "created_at": "2019-01-19 21:57:19",
-        "updated_at": "2019-01-19 21:57:19"
+        "avatar": "1548171476.jpg",
+        "created_at": "2019-01-22 15:12:11",
+        "updated_at": "2019-01-22 15:37:56"
+    },
+    {
+        "id": 3,
+        "name": "teste",
+        "email": "patch@mail.com",
+        "email_verified_at": null,
+        "avatar": "1548169942.jpg",
+        "created_at": "2019-01-22 15:12:22",
+        "updated_at": "2019-01-22 15:12:22"
     }
 ]</code></pre>
 <h3>HTTP Request</h3>
@@ -96,7 +107,10 @@ fetch(url, {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost/api/user" </code></pre>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/user"     -d "Name"="sAGdS2A4MRlgKNE0" \
+    -d "Password"="8d1WzsIhIbf7mYfE" \
+    -d "Email"="nOMZTKurYm2xzu2N" \
+    -d "Avatar"="QdRYhoCOvhrlmill" </code></pre>
 <pre><code class="language-javascript">const url = new URL("http://localhost/api/user");
 
 let headers = {
@@ -104,14 +118,59 @@ let headers = {
     "Content-Type": "application/json",
 }
 
+let body = JSON.stringify({
+    "Name": "sAGdS2A4MRlgKNE0",
+    "Password": "8d1WzsIhIbf7mYfE",
+    "Email": "nOMZTKurYm2xzu2N",
+    "Avatar": "QdRYhoCOvhrlmill",
+})
+
 fetch(url, {
     method: "POST",
     headers: headers,
+    body: body
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <h3>HTTP Request</h3>
 <p><code>POST api/user</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>string</td>
+<td>required</td>
+<td>Nome do utilizador</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>string</td>
+<td>required</td>
+<td>Password do utilizador</td>
+</tr>
+<tr>
+<td>Email</td>
+<td>string</td>
+<td>required</td>
+<td>Email do utilizador</td>
+</tr>
+<tr>
+<td>Avatar</td>
+<td>file</td>
+<td>optional</td>
+<td>Imagem de perfil do utilizador</td>
+</tr>
+</tbody>
+</table>
 <!-- END_f0654d3f2fc63c11f5723f233cc53c83 -->
 <!-- START_ceec0e0b1d13d731ad96603d26bccc2f -->
 <h2>Mostrar um User</h2>
@@ -140,8 +199,28 @@ fetch(url, {
     "name": "emanuel",
     "email": "emanuel@mail",
     "email_verified_at": null,
-    "created_at": "2019-01-19 21:57:19",
-    "updated_at": "2019-01-19 21:57:19"
+    "avatar": "default-avatar.png",
+    "created_at": "2019-01-22 15:12:11",
+    "updated_at": "2019-01-22 15:12:11",
+    "media": "14.0000",
+    "viagems": [
+        {
+            "id": 1,
+            "origem": "aveiro",
+            "destino": "porto",
+            "dataInicio": "2019-01-02",
+            "dataFim": "2019-01-02",
+            "horaInicio": "00:00:00",
+            "horaFim": "12:00:00",
+            "estado": "pendente",
+            "preco": 10,
+            "user_id": 1,
+            "produto_id": null,
+            "tipo_id": 1,
+            "created_at": "2019-01-22 15:18:53",
+            "updated_at": "2019-01-22 15:18:53"
+        }
+    ]
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/user/{user}</code></p>
@@ -151,7 +230,10 @@ fetch(url, {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PUT "http://localhost/api/user/{user}" </code></pre>
+<pre><code class="language-bash">curl -X PUT "http://localhost/api/user/{user}"     -d "Name"="EGZkZyt1AtCQkmvc" \
+    -d "Password"="2WgOadTNUfBgjCty" \
+    -d "Email"="HMZR32m6kKQ6h2rJ" \
+    -d "Avatar"="wZWSkdDNSvom4AkF" </code></pre>
 <pre><code class="language-javascript">const url = new URL("http://localhost/api/user/{user}");
 
 let headers = {
@@ -159,15 +241,60 @@ let headers = {
     "Content-Type": "application/json",
 }
 
+let body = JSON.stringify({
+    "Name": "EGZkZyt1AtCQkmvc",
+    "Password": "2WgOadTNUfBgjCty",
+    "Email": "HMZR32m6kKQ6h2rJ",
+    "Avatar": "wZWSkdDNSvom4AkF",
+})
+
 fetch(url, {
     method: "PUT",
     headers: headers,
+    body: body
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <h3>HTTP Request</h3>
 <p><code>PUT api/user/{user}</code></p>
 <p><code>PATCH api/user/{user}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>string</td>
+<td>optional</td>
+<td>Nome do utilizador</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>string</td>
+<td>optional</td>
+<td>Password do utilizador</td>
+</tr>
+<tr>
+<td>Email</td>
+<td>string</td>
+<td>optional</td>
+<td>Email do utilizador</td>
+</tr>
+<tr>
+<td>Avatar</td>
+<td>file</td>
+<td>optional</td>
+<td>Imagem de perfil do utilizador</td>
+</tr>
+</tbody>
+</table>
 <!-- END_a4a2abed1e8e8cad5e6a3282812fe3f3 -->
 <!-- START_4bb7fb4a7501d3cb1ed21acfc3b205a9 -->
 <h2>Remover um User</h2>
@@ -222,76 +349,20 @@ fetch(url, {
         "dataFim": "2019-01-02",
         "horaInicio": "00:00:00",
         "horaFim": "12:00:00",
-        "estado": "concluido",
+        "estado": "pendente",
         "preco": 10,
         "user_id": 1,
         "produto_id": null,
         "tipo_id": 1,
-        "viagems_id": 3,
-        "created_at": "2019-01-19 21:58:30",
-        "updated_at": "2019-01-19 22:19:30",
+        "created_at": "2019-01-22 15:18:53",
+        "updated_at": "2019-01-22 15:18:53",
         "tipo": {
             "id": 1,
             "tipoViagem": "viagem criada",
-            "created_at": "2019-01-19 21:57:18",
-            "updated_at": "2019-01-19 21:57:18"
+            "created_at": "2019-01-22 15:12:11",
+            "updated_at": "2019-01-22 15:12:11"
         },
         "produto": null
-    },
-    {
-        "id": 2,
-        "origem": "aveiro",
-        "destino": "porto",
-        "dataInicio": "2019-01-02",
-        "dataFim": "2019-01-02",
-        "horaInicio": "00:00:00",
-        "horaFim": "12:00:00",
-        "estado": "pendente",
-        "preco": null,
-        "user_id": 1,
-        "produto_id": null,
-        "tipo_id": 1,
-        "viagems_id": null,
-        "created_at": "2019-01-19 21:58:59",
-        "updated_at": "2019-01-19 21:58:59",
-        "tipo": {
-            "id": 1,
-            "tipoViagem": "viagem criada",
-            "created_at": "2019-01-19 21:57:18",
-            "updated_at": "2019-01-19 21:57:18"
-        },
-        "produto": null
-    },
-    {
-        "id": 3,
-        "origem": "aveiro",
-        "destino": "porto",
-        "dataInicio": "2019-01-02",
-        "dataFim": "2019-01-02",
-        "horaInicio": "00:00:00",
-        "horaFim": "12:00:00",
-        "estado": "concluido",
-        "preco": null,
-        "user_id": 1,
-        "produto_id": 1,
-        "tipo_id": 2,
-        "viagems_id": 1,
-        "created_at": "2019-01-19 22:00:16",
-        "updated_at": "2019-01-19 22:19:30",
-        "tipo": {
-            "id": 2,
-            "tipoViagem": "pedido viagem",
-            "created_at": "2019-01-19 21:57:18",
-            "updated_at": "2019-01-19 21:57:18"
-        },
-        "produto": {
-            "id": 1,
-            "nome": "cadeira",
-            "tamanho": "pequeno",
-            "foto": "1547935216.jpg",
-            "created_at": "2019-01-19 22:00:16",
-            "updated_at": "2019-01-19 22:00:16"
-        }
     }
 ]</code></pre>
 <h3>HTTP Request</h3>
@@ -302,7 +373,18 @@ fetch(url, {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost/api/viagem" </code></pre>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/viagem"     -d "origem"="yyjlZNnXvSLPbPlo" \
+    -d "destino"="eymeM0jDjbgQ9TCT" \
+    -d "dataInicio"="dGaBYYKZxQdOoz1n" \
+    -d "dataFim"="QSyBjjeXVM6G3rBQ" \
+    -d "horaInicio"="jztIjh6PgLDj2FfL" \
+    -d "horaFim"="OpyVd9WGOC0qh5D6" \
+    -d "user_id"="7" \
+    -d "tipo_id"="9" \
+    -d "tamanho"="BRKuc9dcvnCtg7pS" \
+    -d "nome"="Hou6Ohx49VB06sbA" \
+    -d "foto"="LdfEk787W0ktCafk" \
+    -d "preco"="11" </code></pre>
 <pre><code class="language-javascript">const url = new URL("http://localhost/api/viagem");
 
 let headers = {
@@ -310,14 +392,115 @@ let headers = {
     "Content-Type": "application/json",
 }
 
+let body = JSON.stringify({
+    "origem": "yyjlZNnXvSLPbPlo",
+    "destino": "eymeM0jDjbgQ9TCT",
+    "dataInicio": "dGaBYYKZxQdOoz1n",
+    "dataFim": "QSyBjjeXVM6G3rBQ",
+    "horaInicio": "jztIjh6PgLDj2FfL",
+    "horaFim": "OpyVd9WGOC0qh5D6",
+    "user_id": "7",
+    "tipo_id": "9",
+    "tamanho": "BRKuc9dcvnCtg7pS",
+    "nome": "Hou6Ohx49VB06sbA",
+    "foto": "LdfEk787W0ktCafk",
+    "preco": "11",
+})
+
 fetch(url, {
     method: "POST",
     headers: headers,
+    body: body
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <h3>HTTP Request</h3>
 <p><code>POST api/viagem</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>origem</td>
+<td>string</td>
+<td>required</td>
+<td>Origem da viagem</td>
+</tr>
+<tr>
+<td>destino</td>
+<td>string</td>
+<td>required</td>
+<td>Destino da viagem</td>
+</tr>
+<tr>
+<td>dataInicio</td>
+<td>date</td>
+<td>required</td>
+<td>Data de inicio da viagem</td>
+</tr>
+<tr>
+<td>dataFim</td>
+<td>date</td>
+<td>required</td>
+<td>Data de fim da viagem</td>
+</tr>
+<tr>
+<td>horaInicio</td>
+<td>time</td>
+<td>required</td>
+<td>Hora de inicio da viagem</td>
+</tr>
+<tr>
+<td>horaFim</td>
+<td>time</td>
+<td>required</td>
+<td>Hora de fim da viagem</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>integer</td>
+<td>required</td>
+<td>Criador da viagem</td>
+</tr>
+<tr>
+<td>tipo_id</td>
+<td>integer</td>
+<td>required</td>
+<td>Tipo de viagem</td>
+</tr>
+<tr>
+<td>tamanho</td>
+<td>string</td>
+<td>optional</td>
+<td>Tamanho do produto caso seja pedido de viagem</td>
+</tr>
+<tr>
+<td>nome</td>
+<td>string</td>
+<td>optional</td>
+<td>Nome do produto caso seja pedido de viagem</td>
+</tr>
+<tr>
+<td>foto</td>
+<td>file</td>
+<td>optional</td>
+<td>Foto do produto caso seja pedido de viagem</td>
+</tr>
+<tr>
+<td>preco</td>
+<td>integer</td>
+<td>optional</td>
+<td>Preco da viagem caso seja viagem criada</td>
+</tr>
+</tbody>
+</table>
 <!-- END_889352be0fa4105fec64f682987d4a0d -->
 <!-- START_6925d628aa5b82b8d427f9443679a82a -->
 <h2>Mostrar uma Viagem</h2>
@@ -349,19 +532,18 @@ fetch(url, {
     "dataFim": "2019-01-02",
     "horaInicio": "00:00:00",
     "horaFim": "12:00:00",
-    "estado": "concluido",
+    "estado": "pendente",
     "preco": 10,
     "user_id": 1,
     "produto_id": null,
     "tipo_id": 1,
-    "viagems_id": 3,
-    "created_at": "2019-01-19 21:58:30",
-    "updated_at": "2019-01-19 22:19:30",
+    "created_at": "2019-01-22 15:18:53",
+    "updated_at": "2019-01-22 15:18:53",
     "tipo": {
         "id": 1,
         "tipoViagem": "viagem criada",
-        "created_at": "2019-01-19 21:57:18",
-        "updated_at": "2019-01-19 21:57:18"
+        "created_at": "2019-01-22 15:12:11",
+        "updated_at": "2019-01-22 15:12:11"
     },
     "produto": null
 }</code></pre>
@@ -373,7 +555,7 @@ fetch(url, {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PUT "http://localhost/api/viagem/{viagem}" </code></pre>
+<pre><code class="language-bash">curl -X PUT "http://localhost/api/viagem/{viagem}"     -d "estado"="hNUY8RZu8Z8vFXLT" </code></pre>
 <pre><code class="language-javascript">const url = new URL("http://localhost/api/viagem/{viagem}");
 
 let headers = {
@@ -381,15 +563,39 @@ let headers = {
     "Content-Type": "application/json",
 }
 
+let body = JSON.stringify({
+    "estado": "hNUY8RZu8Z8vFXLT",
+})
+
 fetch(url, {
     method: "PUT",
     headers: headers,
+    body: body
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <h3>HTTP Request</h3>
 <p><code>PUT api/viagem/{viagem}</code></p>
 <p><code>PATCH api/viagem/{viagem}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>estado</td>
+<td>required</td>
+<td>optional</td>
+<td>string Estado da viagem</td>
+</tr>
+</tbody>
+</table>
 <!-- END_dbc331269073970ac565ffd3d05b57d6 -->
 <!-- START_6b2fec7ca511aa269e8d50892a874158 -->
 <h2>Remover uma Viagem</h2>
@@ -418,7 +624,12 @@ fetch(url, {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost/api/viagem/search" </code></pre>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/viagem/search"     -d "origem"="CeBXXqyEljM4b36n" \
+    -d "destino"="99b9vnYm4iv3jKuX" \
+    -d "dataInicio"="Qv4gEPLrmbUXCsYc" \
+    -d "dataFim"="hRJs8m19kHjS7aC9" \
+    -d "horaInicio"="8ahudB63NQItD7lf" \
+    -d "horaFim"="wAILtKFRhoHU3dCL" </code></pre>
 <pre><code class="language-javascript">const url = new URL("http://localhost/api/viagem/search");
 
 let headers = {
@@ -426,14 +637,73 @@ let headers = {
     "Content-Type": "application/json",
 }
 
+let body = JSON.stringify({
+    "origem": "CeBXXqyEljM4b36n",
+    "destino": "99b9vnYm4iv3jKuX",
+    "dataInicio": "Qv4gEPLrmbUXCsYc",
+    "dataFim": "hRJs8m19kHjS7aC9",
+    "horaInicio": "8ahudB63NQItD7lf",
+    "horaFim": "wAILtKFRhoHU3dCL",
+})
+
 fetch(url, {
     method: "POST",
     headers: headers,
+    body: body
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <h3>HTTP Request</h3>
 <p><code>POST api/viagem/search</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>origem</td>
+<td>string</td>
+<td>required</td>
+<td>Origem da viagem</td>
+</tr>
+<tr>
+<td>destino</td>
+<td>string</td>
+<td>required</td>
+<td>Destino da viagem</td>
+</tr>
+<tr>
+<td>dataInicio</td>
+<td>date</td>
+<td>required</td>
+<td>Data de inicio da viagem</td>
+</tr>
+<tr>
+<td>dataFim</td>
+<td>date</td>
+<td>required</td>
+<td>Data de fim da viagem</td>
+</tr>
+<tr>
+<td>horaInicio</td>
+<td>time</td>
+<td>required</td>
+<td>Hora de inicio da viagem</td>
+</tr>
+<tr>
+<td>horaFim</td>
+<td>time</td>
+<td>required</td>
+<td>Hora de fim da viagem</td>
+</tr>
+</tbody>
+</table>
 <!-- END_102750eaa98309a278b18c450a32339a -->
 <!-- START_07e7f3ae367cb99564afa991e133a461 -->
 <h2>Listar todos os Tipos</h2>
@@ -462,7 +732,7 @@ fetch(url, {
 <p><code>GET api/tipo</code></p>
 <!-- END_07e7f3ae367cb99564afa991e133a461 -->
 <!-- START_80a06024db4f0d37a70ede1272c3a4d5 -->
-<h2>Store a newly created resource in storage.</h2>
+<h2>Criar um novo tipo de viagem</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -484,7 +754,7 @@ fetch(url, {
 <p><code>POST api/tipo</code></p>
 <!-- END_80a06024db4f0d37a70ede1272c3a4d5 -->
 <!-- START_f695ab48314b4d59f8f1ea5d829afe74 -->
-<h2>Display the specified resource.</h2>
+<h2>Mostrar todos os tipos de viagens</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -510,7 +780,7 @@ fetch(url, {
 <p><code>GET api/tipo/{tipo}</code></p>
 <!-- END_f695ab48314b4d59f8f1ea5d829afe74 -->
 <!-- START_208c69de33e9cfaba5c8dccd74aebec5 -->
-<h2>Update the specified resource in storage.</h2>
+<h2>Alterar um tipo de viagem</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -581,9 +851,17 @@ fetch(url, {
         "id": 1,
         "nome": "cadeira",
         "tamanho": "pequeno",
-        "foto": "1547935216.jpg",
-        "created_at": "2019-01-19 22:00:16",
-        "updated_at": "2019-01-19 22:00:16"
+        "foto": null,
+        "created_at": "2019-01-23 15:53:23",
+        "updated_at": "2019-01-23 15:53:23"
+    },
+    {
+        "id": 2,
+        "nome": "cadeira",
+        "tamanho": "pequeno",
+        "foto": null,
+        "created_at": "2019-01-23 16:01:09",
+        "updated_at": "2019-01-23 16:01:09"
     }
 ]</code></pre>
 <h3>HTTP Request</h3>
@@ -594,7 +872,8 @@ fetch(url, {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost/api/produto" </code></pre>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/produto"     -d "tamanho"="W5m30gsuEqAF0XWc" \
+    -d "nome"="zv6HhVu61Y4riovk" </code></pre>
 <pre><code class="language-javascript">const url = new URL("http://localhost/api/produto");
 
 let headers = {
@@ -602,14 +881,45 @@ let headers = {
     "Content-Type": "application/json",
 }
 
+let body = JSON.stringify({
+    "tamanho": "W5m30gsuEqAF0XWc",
+    "nome": "zv6HhVu61Y4riovk",
+})
+
 fetch(url, {
     method: "POST",
     headers: headers,
+    body: body
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <h3>HTTP Request</h3>
 <p><code>POST api/produto</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tamanho</td>
+<td>string</td>
+<td>required</td>
+<td>Tamanho do produto</td>
+</tr>
+<tr>
+<td>nome</td>
+<td>string</td>
+<td>required</td>
+<td>Nome do produto</td>
+</tr>
+</tbody>
+</table>
 <!-- END_a2004754d7dd7a2d32cdb988d6bdfee0 -->
 <!-- START_7f8516938ae1193eb85c8f75ea379fe2 -->
 <h2>Mostrar um Produto</h2>
@@ -637,9 +947,9 @@ fetch(url, {
     "id": 1,
     "nome": "cadeira",
     "tamanho": "pequeno",
-    "foto": "1547935216.jpg",
-    "created_at": "2019-01-19 22:00:16",
-    "updated_at": "2019-01-19 22:00:16"
+    "foto": null,
+    "created_at": "2019-01-23 15:53:23",
+    "updated_at": "2019-01-23 15:53:23"
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/produto/{produto}</code></p>
@@ -649,7 +959,8 @@ fetch(url, {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PUT "http://localhost/api/produto/{produto}" </code></pre>
+<pre><code class="language-bash">curl -X PUT "http://localhost/api/produto/{produto}"     -d "tamanho"="uKvqqSGwBYtw9wJh" \
+    -d "nome"="m3jpMkrW8gnEg7PG" </code></pre>
 <pre><code class="language-javascript">const url = new URL("http://localhost/api/produto/{produto}");
 
 let headers = {
@@ -657,15 +968,46 @@ let headers = {
     "Content-Type": "application/json",
 }
 
+let body = JSON.stringify({
+    "tamanho": "uKvqqSGwBYtw9wJh",
+    "nome": "m3jpMkrW8gnEg7PG",
+})
+
 fetch(url, {
     method: "PUT",
     headers: headers,
+    body: body
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <h3>HTTP Request</h3>
 <p><code>PUT api/produto/{produto}</code></p>
 <p><code>PATCH api/produto/{produto}</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tamanho</td>
+<td>string</td>
+<td>optional</td>
+<td>Tamanho do produto</td>
+</tr>
+<tr>
+<td>nome</td>
+<td>string</td>
+<td>optional</td>
+<td>Nome do produto</td>
+</tr>
+</tbody>
+</table>
 <!-- END_97abbcf4cd4371b5349a47c0220e6526 -->
 <!-- START_762b93bd07a15358325db32e6e6bff1b -->
 <h2>Remover um Produto</h2>
@@ -690,7 +1032,7 @@ fetch(url, {
 <p><code>DELETE api/produto/{produto}</code></p>
 <!-- END_762b93bd07a15358325db32e6e6bff1b -->
 <!-- START_2754857aaac2f36f8ecfa54b77c3362b -->
-<h2>Display a listing of the resource.</h2>
+<h2>Listar todas as reviews</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -711,42 +1053,47 @@ fetch(url, {
 <blockquote>
 <p>Example response (200):</p>
 </blockquote>
-<pre><code class="language-json">[]</code></pre>
+<pre><code class="language-json">[
+    {
+        "id": 1,
+        "nota": 20,
+        "comentario": "teste",
+        "user_id": 1,
+        "viagems_id": 1,
+        "created_at": "2019-01-23 16:27:13",
+        "updated_at": "2019-01-23 16:27:13"
+    },
+    {
+        "id": 2,
+        "nota": 20,
+        "comentario": "teste",
+        "user_id": 1,
+        "viagems_id": 1,
+        "created_at": "2019-01-23 16:35:01",
+        "updated_at": "2019-01-23 16:35:01"
+    },
+    {
+        "id": 3,
+        "nota": 2,
+        "comentario": "teste",
+        "user_id": 1,
+        "viagems_id": 1,
+        "created_at": "2019-01-23 16:39:56",
+        "updated_at": "2019-01-23 16:39:56"
+    }
+]</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/review</code></p>
 <!-- END_2754857aaac2f36f8ecfa54b77c3362b -->
-<!-- START_47933aaa9ff2663fb4dba3e0d6481476 -->
-<h2>Show the form for creating a new resource.</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X GET -G "http://localhost/api/review/create" </code></pre>
-<pre><code class="language-javascript">const url = new URL("http://localhost/api/review/create");
-
-let headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-}
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response =&gt; response.json())
-    .then(json =&gt; console.log(json));</code></pre>
-<blockquote>
-<p>Example response (200):</p>
-</blockquote>
-<pre><code class="language-json">null</code></pre>
-<h3>HTTP Request</h3>
-<p><code>GET api/review/create</code></p>
-<!-- END_47933aaa9ff2663fb4dba3e0d6481476 -->
 <!-- START_59ad28c6b6c5ba495ef823bb089bbbc3 -->
-<h2>Store a newly created resource in storage.</h2>
+<h2>Criar uma nova review</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost/api/review" </code></pre>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/review"     -d "nota"="9" \
+    -d "comentario"="YvKshjqSKGYuOmHQ" \
+    -d "user_id"="2" \
+    -d "viagems_id"="7" </code></pre>
 <pre><code class="language-javascript">const url = new URL("http://localhost/api/review");
 
 let headers = {
@@ -754,17 +1101,62 @@ let headers = {
     "Content-Type": "application/json",
 }
 
+let body = JSON.stringify({
+    "nota": "9",
+    "comentario": "YvKshjqSKGYuOmHQ",
+    "user_id": "2",
+    "viagems_id": "7",
+})
+
 fetch(url, {
     method: "POST",
     headers: headers,
+    body: body
 })
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <h3>HTTP Request</h3>
 <p><code>POST api/review</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nota</td>
+<td>integer</td>
+<td>required</td>
+<td>Nota da viagem ou utilizador</td>
+</tr>
+<tr>
+<td>comentario</td>
+<td>string</td>
+<td>optional</td>
+<td>Comentario sobre a viagem ou utilizador</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>integer</td>
+<td>required</td>
+<td>Utilizador a ser avaliado</td>
+</tr>
+<tr>
+<td>viagems_id</td>
+<td>integer</td>
+<td>required</td>
+<td>Viagem em que se avaliou o utilizador</td>
+</tr>
+</tbody>
+</table>
 <!-- END_59ad28c6b6c5ba495ef823bb089bbbc3 -->
 <!-- START_3f08780c084feca94bee4876b1b4e7fb -->
-<h2>Display the specified resource.</h2>
+<h2>Mostrar uma review</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -783,858 +1175,31 @@ fetch(url, {
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <blockquote>
-<p>Example response (404):</p>
+<p>Example response (200):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "message": "No query results for model [App\\Review].",
-    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
-    "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-    "line": 200,
-    "trace": [
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-            "line": 176,
-            "function": "prepareException",
-            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/app\/Exceptions\/Handler.php",
-            "line": 49,
-            "function": "render",
-            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/nunomaduro\/collision\/src\/Adapters\/Laravel\/ExceptionHandler.php",
-            "line": 68,
-            "function": "render",
-            "class": "App\\Exceptions\\Handler",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 83,
-            "function": "render",
-            "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 55,
-            "function": "handleException",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php",
-            "line": 58,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 104,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 684,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 659,
-            "function": "runRouteWithinStack",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 625,
-            "function": "runRoute",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 614,
-            "function": "dispatchToRoute",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
-            "line": 176,
-            "function": "dispatch",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 30,
-            "function": "Illuminate\\Foundation\\Http\\{closure}",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/fideloper\/proxy\/src\/TrustProxies.php",
-            "line": 57,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Fideloper\\Proxy\\TrustProxies",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
-            "line": 31,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
-            "line": 31,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php",
-            "line": 27,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 62,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/barryvdh\/laravel-cors\/src\/HandlePreflight.php",
-            "line": 29,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Barryvdh\\Cors\\HandlePreflight",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 104,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
-            "line": 151,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
-            "line": 116,
-            "function": "sendRequestThroughRouter",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Tools\/ResponseStrategies\/ResponseCallStrategy.php",
-            "line": 272,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Tools\/ResponseStrategies\/ResponseCallStrategy.php",
-            "line": 256,
-            "function": "callLaravelRoute",
-            "class": "Mpociot\\ApiDoc\\Tools\\ResponseStrategies\\ResponseCallStrategy",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Tools\/ResponseStrategies\/ResponseCallStrategy.php",
-            "line": 33,
-            "function": "makeApiCall",
-            "class": "Mpociot\\ApiDoc\\Tools\\ResponseStrategies\\ResponseCallStrategy",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Tools\/ResponseResolver.php",
-            "line": 49,
-            "function": "__invoke",
-            "class": "Mpociot\\ApiDoc\\Tools\\ResponseStrategies\\ResponseCallStrategy",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Tools\/ResponseResolver.php",
-            "line": 68,
-            "function": "resolve",
-            "class": "Mpociot\\ApiDoc\\Tools\\ResponseResolver",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Tools\/Generator.php",
-            "line": 54,
-            "function": "getResponse",
-            "class": "Mpociot\\ApiDoc\\Tools\\ResponseResolver",
-            "type": "::"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Commands\/GenerateDocumentation.php",
-            "line": 196,
-            "function": "processRoute",
-            "class": "Mpociot\\ApiDoc\\Tools\\Generator",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Commands\/GenerateDocumentation.php",
-            "line": 57,
-            "function": "processRoutes",
-            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
-            "type": "-&gt;"
-        },
-        {
-            "function": "handle",
-            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 29,
-            "function": "call_user_func_array"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 87,
-            "function": "Illuminate\\Container\\{closure}",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 31,
-            "function": "callBoundMethod",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
-            "line": 572,
-            "function": "call",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
-            "function": "call",
-            "class": "Illuminate\\Container\\Container",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/symfony\/console\/Command\/Command.php",
-            "line": 255,
-            "function": "execute",
-            "class": "Illuminate\\Console\\Command",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Command\\Command",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/symfony\/console\/Application.php",
-            "line": 901,
-            "function": "run",
-            "class": "Illuminate\\Console\\Command",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/symfony\/console\/Application.php",
-            "line": 262,
-            "function": "doRunCommand",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/symfony\/console\/Application.php",
-            "line": 145,
-            "function": "doRun",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php",
-            "line": 89,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php",
-            "line": 122,
-            "function": "run",
-            "class": "Illuminate\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/artisan",
-            "line": 37,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Console\\Kernel",
-            "type": "-&gt;"
-        }
-    ]
+    "id": 1,
+    "nota": 20,
+    "comentario": "teste",
+    "user_id": 1,
+    "viagems_id": 1,
+    "created_at": "2019-01-23 16:27:13",
+    "updated_at": "2019-01-23 16:27:13",
+    "user": {
+        "id": 1,
+        "name": "emanuel",
+        "email": "emanuel@mail",
+        "email_verified_at": null,
+        "avatar": "default-avatar.png",
+        "created_at": "2019-01-22 15:12:11",
+        "updated_at": "2019-01-22 15:12:11"
+    }
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/review/{review}</code></p>
 <!-- END_3f08780c084feca94bee4876b1b4e7fb -->
-<!-- START_2de24b242e1d182750aefe4cdf894577 -->
-<h2>Show the form for editing the specified resource.</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X GET -G "http://localhost/api/review/{review}/edit" </code></pre>
-<pre><code class="language-javascript">const url = new URL("http://localhost/api/review/{review}/edit");
-
-let headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-}
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response =&gt; response.json())
-    .then(json =&gt; console.log(json));</code></pre>
-<blockquote>
-<p>Example response (404):</p>
-</blockquote>
-<pre><code class="language-json">{
-    "message": "No query results for model [App\\Review].",
-    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
-    "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-    "line": 200,
-    "trace": [
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Exceptions\/Handler.php",
-            "line": 176,
-            "function": "prepareException",
-            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/app\/Exceptions\/Handler.php",
-            "line": 49,
-            "function": "render",
-            "class": "Illuminate\\Foundation\\Exceptions\\Handler",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/nunomaduro\/collision\/src\/Adapters\/Laravel\/ExceptionHandler.php",
-            "line": 68,
-            "function": "render",
-            "class": "App\\Exceptions\\Handler",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 83,
-            "function": "render",
-            "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 55,
-            "function": "handleException",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php",
-            "line": 58,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 104,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 684,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 659,
-            "function": "runRouteWithinStack",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 625,
-            "function": "runRoute",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php",
-            "line": 614,
-            "function": "dispatchToRoute",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
-            "line": 176,
-            "function": "dispatch",
-            "class": "Illuminate\\Routing\\Router",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 30,
-            "function": "Illuminate\\Foundation\\Http\\{closure}",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/fideloper\/proxy\/src\/TrustProxies.php",
-            "line": 57,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Fideloper\\Proxy\\TrustProxies",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
-            "line": 31,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php",
-            "line": 31,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php",
-            "line": 27,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/CheckForMaintenanceMode.php",
-            "line": 62,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/barryvdh\/laravel-cors\/src\/HandlePreflight.php",
-            "line": 29,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 151,
-            "function": "handle",
-            "class": "Barryvdh\\Cors\\HandlePreflight",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Pipeline.php",
-            "line": 53,
-            "function": "Illuminate\\Pipeline\\{closure}",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php",
-            "line": 104,
-            "function": "Illuminate\\Routing\\{closure}",
-            "class": "Illuminate\\Routing\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
-            "line": 151,
-            "function": "then",
-            "class": "Illuminate\\Pipeline\\Pipeline",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php",
-            "line": 116,
-            "function": "sendRequestThroughRouter",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Tools\/ResponseStrategies\/ResponseCallStrategy.php",
-            "line": 272,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Http\\Kernel",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Tools\/ResponseStrategies\/ResponseCallStrategy.php",
-            "line": 256,
-            "function": "callLaravelRoute",
-            "class": "Mpociot\\ApiDoc\\Tools\\ResponseStrategies\\ResponseCallStrategy",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Tools\/ResponseStrategies\/ResponseCallStrategy.php",
-            "line": 33,
-            "function": "makeApiCall",
-            "class": "Mpociot\\ApiDoc\\Tools\\ResponseStrategies\\ResponseCallStrategy",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Tools\/ResponseResolver.php",
-            "line": 49,
-            "function": "__invoke",
-            "class": "Mpociot\\ApiDoc\\Tools\\ResponseStrategies\\ResponseCallStrategy",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Tools\/ResponseResolver.php",
-            "line": 68,
-            "function": "resolve",
-            "class": "Mpociot\\ApiDoc\\Tools\\ResponseResolver",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Tools\/Generator.php",
-            "line": 54,
-            "function": "getResponse",
-            "class": "Mpociot\\ApiDoc\\Tools\\ResponseResolver",
-            "type": "::"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Commands\/GenerateDocumentation.php",
-            "line": 196,
-            "function": "processRoute",
-            "class": "Mpociot\\ApiDoc\\Tools\\Generator",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/mpociot\/laravel-apidoc-generator\/src\/Commands\/GenerateDocumentation.php",
-            "line": 57,
-            "function": "processRoutes",
-            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
-            "type": "-&gt;"
-        },
-        {
-            "function": "handle",
-            "class": "Mpociot\\ApiDoc\\Commands\\GenerateDocumentation",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 29,
-            "function": "call_user_func_array"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 87,
-            "function": "Illuminate\\Container\\{closure}",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php",
-            "line": 31,
-            "function": "callBoundMethod",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php",
-            "line": 572,
-            "function": "call",
-            "class": "Illuminate\\Container\\BoundMethod",
-            "type": "::"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 183,
-            "function": "call",
-            "class": "Illuminate\\Container\\Container",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/symfony\/console\/Command\/Command.php",
-            "line": 255,
-            "function": "execute",
-            "class": "Illuminate\\Console\\Command",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php",
-            "line": 170,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Command\\Command",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/symfony\/console\/Application.php",
-            "line": 901,
-            "function": "run",
-            "class": "Illuminate\\Console\\Command",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/symfony\/console\/Application.php",
-            "line": 262,
-            "function": "doRunCommand",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/symfony\/console\/Application.php",
-            "line": 145,
-            "function": "doRun",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php",
-            "line": 89,
-            "function": "run",
-            "class": "Symfony\\Component\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php",
-            "line": 122,
-            "function": "run",
-            "class": "Illuminate\\Console\\Application",
-            "type": "-&gt;"
-        },
-        {
-            "file": "\/home\/emanuel\/Desktop\/Desktop\/APIonTheWay\/artisan",
-            "line": 37,
-            "function": "handle",
-            "class": "Illuminate\\Foundation\\Console\\Kernel",
-            "type": "-&gt;"
-        }
-    ]
-}</code></pre>
-<h3>HTTP Request</h3>
-<p><code>GET api/review/{review}/edit</code></p>
-<!-- END_2de24b242e1d182750aefe4cdf894577 -->
 <!-- START_057a70a03f1dfd288f5ca17033a90ed8 -->
-<h2>Update the specified resource in storage.</h2>
+<h2>Atualizar uma review</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -1657,7 +1222,7 @@ fetch(url, {
 <p><code>PATCH api/review/{review}</code></p>
 <!-- END_057a70a03f1dfd288f5ca17033a90ed8 -->
 <!-- START_97a164ea1d7bbba9951a3e709814ac5e -->
-<h2>Remove the specified resource from storage.</h2>
+<h2>Remover uma review</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>

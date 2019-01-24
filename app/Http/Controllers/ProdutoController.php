@@ -34,6 +34,10 @@ class ProdutoController extends Controller
 
     /**
      * Criar um Produto
+     * 
+     * @bodyParam tamanho string required Tamanho do produto
+     * @bodyParam nome string required Nome do produto
+     * 
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -42,7 +46,7 @@ class ProdutoController extends Controller
     {
         //
 
-        $data = $request->only(['tamanho', 'preco', 'peso', 'nome']);
+        $data = $request->only(['tamanho', 'nome']);
         $produto = Produto::create($data);
         return Response([
           'status' => 0,
@@ -65,6 +69,8 @@ class ProdutoController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     * 
+     * 
      *
      * @param  \App\Produto  $produto
      * @return \Illuminate\Http\Response
@@ -76,6 +82,9 @@ class ProdutoController extends Controller
 
     /**
      * Editar um Produto
+     * 
+     * @bodyParam tamanho string Tamanho do produto
+     * @bodyParam nome string Nome do produto
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Produto  $produto

@@ -11,7 +11,7 @@ use App\Viagem;
 class ReviewController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Listar todas as reviews
      *
      * @return \Illuminate\Http\Response
      */
@@ -33,7 +33,12 @@ class ReviewController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Criar uma nova review
+     * 
+     * @bodyParam nota integer required Nota da viagem ou utilizador
+     * @bodyParam comentario string Comentario sobre a viagem ou utilizador
+     * @bodyParam user_id integer required Utilizador a ser avaliado
+     * @bodyParam viagems_id integer required Viagem em que se avaliou o utilizador
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -59,7 +64,7 @@ class ReviewController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Mostrar uma review
      *
      * @param  \App\Review  $review
      * @return \Illuminate\Http\Response
@@ -83,7 +88,7 @@ class ReviewController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Atualizar uma review
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Review  $review
@@ -95,7 +100,7 @@ class ReviewController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remover uma review
      *
      * @param  \App\Review  $review
      * @return \Illuminate\Http\Response

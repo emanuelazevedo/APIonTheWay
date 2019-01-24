@@ -17,6 +17,7 @@ class ViagemController extends Controller
 {
     /**
      * Listar todas as Viagens
+     * 
      *
      * @return \Illuminate\Http\Response
      */
@@ -46,6 +47,19 @@ class ViagemController extends Controller
 
     /**
      * Criar uma Viagem
+     * 
+     * @bodyParam origem string required Origem da viagem
+     * @bodyParam destino string required Destino da viagem
+     * @bodyParam dataInicio date required Data de inicio da viagem
+     * @bodyParam dataFim date required Data de fim da viagem
+     * @bodyParam horaInicio time required Hora de inicio da viagem
+     * @bodyParam horaFim time required Hora de fim da viagem
+     * @bodyParam user_id integer required Criador da viagem
+     * @bodyParam tipo_id integer required Tipo de viagem
+     * @bodyParam tamanho string Tamanho do produto caso seja pedido de viagem
+     * @bodyParam nome string Nome do produto caso seja pedido de viagem
+     * @bodyParam foto file Foto do produto caso seja pedido de viagem
+     * @bodyParam preco integer Preco da viagem caso seja viagem criada
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -119,6 +133,8 @@ class ViagemController extends Controller
 
     /**
      * Editar uma Viagem
+     * 
+     * @bodyParam estado required string Estado da viagem
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Viagem  $viagem
@@ -160,6 +176,13 @@ class ViagemController extends Controller
 
     /**
      * Pesquisar por Viagens
+     * 
+     * @bodyParam origem string required Origem da viagem
+     * @bodyParam destino string required Destino da viagem
+     * @bodyParam dataInicio date required Data de inicio da viagem
+     * @bodyParam dataFim date required Data de fim da viagem
+     * @bodyParam horaInicio time required Hora de inicio da viagem
+     * @bodyParam horaFim time required Hora de fim da viagem
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response

@@ -44,6 +44,11 @@ class UserController extends Controller
 
     /**
      * Criar um User
+     * 
+     * @bodyParam Name string required Nome do utilizador
+     * @bodyParam Password string required Password do utilizador
+     * @bodyParam Email string required Email do utilizador
+     * @bodyParam Avatar file Imagem de perfil do utilizador
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -76,6 +81,7 @@ class UserController extends Controller
 
     /**
      * Mostrar um User
+     * 
      *
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
@@ -93,6 +99,7 @@ class UserController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     * 
      *
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
@@ -104,6 +111,11 @@ class UserController extends Controller
 
     /**
      * Editar um User
+     * 
+     * @bodyParam Name string Nome do utilizador
+     * @bodyParam Password string Password do utilizador
+     * @bodyParam Email string Email do utilizador
+     * @bodyParam Avatar file Imagem de perfil do utilizador
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\User  $user

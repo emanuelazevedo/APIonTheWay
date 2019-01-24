@@ -28,7 +28,7 @@ class TipoController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Criar um novo tipo de viagem
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -39,7 +39,7 @@ class TipoController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Mostrar todos os tipos de viagens
      *
      * @param  \App\Tipo  $tipo
      * @return \Illuminate\Http\Response
@@ -61,7 +61,7 @@ class TipoController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Alterar um tipo de viagem
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Tipo  $tipo
