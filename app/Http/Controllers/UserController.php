@@ -83,7 +83,11 @@ class UserController extends Controller
     public function show(User $user)
     {
         //
-        $articles = $user->viagem;
+        $user->viagems;
+        $reviews = Review::where('user_id', $user['id'])->avg('nota');
+
+        $user['media'] = $reviews;
+
         return $user;
     }
 
@@ -147,26 +151,6 @@ class UserController extends Controller
           'data' => $user,
           'msg' => 'ok'
         ], 200);
-
-    }
-
-    /**
-     * Obtenção da média das Reviews de um User
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function calcMediaReview(Request $request)
-    {
-        //
-        $data = $request->only(['id']);
-        
-        $reviews = Review::where('user_id', $data['id'])->avg('nota');
-        return Response([
-            'status' => 0,
-            'data' => $reviews,
-            'msg' => 'ok'
-          ], 200);
 
     }
 
