@@ -25,12 +25,6 @@ class ViagemController extends Controller
     {
         //
         $viagens = Viagem::all();
-        $viagem = array();
-        foreach($viagens as $trip){
-            $trip->tipo;
-            $trip->produto;
-            $viagem[] = $trip;
-        }
 
         return $viagem;
     }
@@ -50,15 +44,11 @@ class ViagemController extends Controller
      * 
      * @bodyParam origem string required Origem da viagem
      * @bodyParam destino string required Destino da viagem
-     * @bodyParam dataInicio date required Data de inicio da viagem
-     * @bodyParam dataFim date required Data de fim da viagem
+     * @bodyParam dataInicio date required Data da viagem
      * @bodyParam horaInicio time required Hora de inicio da viagem
      * @bodyParam horaFim time required Hora de fim da viagem
      * @bodyParam user_id integer required Criador da viagem
      * @bodyParam tipo_id integer required Tipo de viagem
-     * @bodyParam tamanho string Tamanho do produto caso seja pedido de viagem
-     * @bodyParam nome string Nome do produto caso seja pedido de viagem
-     * @bodyParam foto file Foto do produto caso seja pedido de viagem
      * @bodyParam preco integer Preco da viagem caso seja viagem criada
      *
      * @param  \Illuminate\Http\Request  $request
@@ -67,41 +57,20 @@ class ViagemController extends Controller
     public function store(ViagemCreateRequest $request)
     {
         //
-        $dataViagem = $request->only(['origem', 'destino', 'dataInicio', 'dataFim', 'horaInicio', 'horaFim', 'user_id', 'tipo_id']);
-        $dataViagem['estado'] = 'pendente';
+        $dataViagem = $request->only(['origem', 'destino', 'data', 'horaInicio', 'horaFim', 'user_id', 'tipo_id', 'preco']);
+        $dataViagem['estado_id'] = 1;
 
-        // pedido de viagem
-        if($request->tipo_id == 2){
-            $dataProduto = $request->only(['tamanho', 'nome']);
-
-            $produto = Produto::create($dataProduto);
-
-            if($request->hasFile('foto')){
-                $foto = $request->file('foto');
-                $filename = time() . "." . $foto->getClientOriginalExtension();
-                Image::make($foto)->resize(300, 300)->save(public_path('uploads/produtos' . $filename));
-                
-                $produto->foto = $filename;
-                $produto->save();
-            }
-
-            $dataViagem['produto_id'] = $produto->id;
+        // se for viagem criada
+        if($request->tipo_id == 1){
+            
             $viagem = Viagem::create($dataViagem);
             return Response([
-              'status' => 0,
-              'dataViagem' => $viagem,
-              'dataProduto' => $produto,
-              'msg' => 'ok'
-            ], 200);
+                'status' => 0,
+                'dataViagem' => $viagem,
+                'msg' => 'ok'
+                ], 200);
         }
-        // viagem criada
-        $dataViagem['preco'] = $request->input('preco');
-        $viagem = Viagem::create($dataViagem);
-        return Response([
-          'status' => 0,
-          'dataViagem' => $viagem,
-          'msg' => 'ok'
-        ], 200);
+        
 
     }
 
@@ -114,8 +83,6 @@ class ViagemController extends Controller
     public function show(Viagem $viagem)
     {
         //
-        $viagem->tipo;
-        $viagem->produto;
         return $viagem;
     }
 
@@ -134,7 +101,7 @@ class ViagemController extends Controller
     /**
      * Editar uma Viagem
      * 
-     * @bodyParam estado required string Estado da viagem
+     * @bodyParam estado required id Estado da viagem
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Viagem  $viagem
@@ -179,8 +146,7 @@ class ViagemController extends Controller
      * 
      * @bodyParam origem string required Origem da viagem
      * @bodyParam destino string required Destino da viagem
-     * @bodyParam dataInicio date required Data de inicio da viagem
-     * @bodyParam dataFim date required Data de fim da viagem
+     * @bodyParam data date required Data da viagem
      * @bodyParam horaInicio time required Hora de inicio da viagem
      * @bodyParam horaFim time required Hora de fim da viagem
      *
@@ -192,8 +158,7 @@ class ViagemController extends Controller
         ->where('tipo_id', 1)
         ->where('origem', $request->origem)
         ->where('destino', $request->destino)
-        ->where('dataInicio', $request->dataInicio)
-        ->where('dataFim', $request->dataFim)
+        ->where('data', $request->dataInicio)
         ->where('horaInicio', $request->horaInicio)
         ->where('horaFim', $request->horaFim)->get();
 

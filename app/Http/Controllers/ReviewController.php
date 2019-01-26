@@ -47,14 +47,14 @@ class ReviewController extends Controller
     {
         //
         $data = $request->only(['nota', 'comentario', 'user_id', 'viagems_id']);
-        $viagemId = $request->input('viagems_id');
-        $viagem = Viagem::find($viagemId);
-        if($viagem['estado'] == 'avaliado'){
-            return Response([
-                'status' => 1,
-                'msg' => 'A viagem já está avaliada'
-              ], 500);
-        }
+        // $viagemId = $request->input('viagems_id');
+        // $viagem = Viagem::find($viagemId);
+        // if($viagem['estado'] == 'avaliado'){
+        //     return Response([
+        //         'status' => 1,
+        //         'msg' => 'A viagem já está avaliada'
+        //       ], 500);
+        // }
         $review = Review::create($data);
         return Response([
             'status' => 0,

@@ -11,7 +11,7 @@ class TipoTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        // seed de tipos de viagens
         \App\Tipo::create([
           'tipoViagem' => 'viagem criada',
         ]);
@@ -20,6 +20,24 @@ class TipoTableSeeder extends Seeder
           'tipoViagem' => 'pedido viagem',
         ]);
 
+        // seed de estados
+        \App\Estado::create([
+          'estado' => 'pendente',
+        ]);
+
+        \App\Estado::create([
+          'estado' => 'em viagem',
+        ]);
+
+        \App\Estado::create([
+          'estado' => 'concluida',
+        ]);
+
+        \App\Estado::create([
+          'estado' => 'avaliada',
+        ]);
+
+        // seed de users
         \App\User::create([
           'name' => 'emanuel',
           'email' => 'emanuel@mail',

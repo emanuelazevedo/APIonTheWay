@@ -46,7 +46,16 @@ class ProdutoController extends Controller
     {
         //
 
-        $data = $request->only(['tamanho', 'nome']);
+        $data = $request->only(['tamanho', 'nome', 'viagems_id', 'user_id']);
+
+        if($request->hasFile('foto')){
+            $foto = $request->file('foto');
+            $filename = time() . "." . $foto->getClientOriginalExtension();
+            Image::make($foto)->resize(300, 300)->save(public_path('uploads/produtos' . $filename));
+            
+            $produto->foto = $filename;
+            $produto->save();
+        }
         $produto = Produto::create($data);
         return Response([
           'status' => 0,
@@ -64,6 +73,7 @@ class ProdutoController extends Controller
     public function show(Produto $produto)
     {
         //
+        $produto->viagems;
         return $produto;
     }
 

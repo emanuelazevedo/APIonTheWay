@@ -89,7 +89,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         //
-        $user->viagems;
+        $user->produtos;
         $reviews = Review::where('user_id', $user['id'])->avg('nota');
 
         $user['media'] = $reviews;
