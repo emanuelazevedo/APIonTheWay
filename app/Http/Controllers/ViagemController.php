@@ -44,7 +44,7 @@ class ViagemController extends Controller
      * 
      * @bodyParam origem string required Origem da viagem
      * @bodyParam destino string required Destino da viagem
-     * @bodyParam dataInicio date required Data da viagem
+     * @bodyParam data date required Data da viagem
      * @bodyParam horaInicio time required Hora de inicio da viagem
      * @bodyParam horaFim time required Hora de fim da viagem
      * @bodyParam user_id integer required Criador da viagem
@@ -102,7 +102,7 @@ class ViagemController extends Controller
     /**
      * Editar uma Viagem
      * 
-     * @bodyParam estado required id Estado da viagem
+     * @bodyParam estado integer required id Estado da viagem
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Viagem  $viagem

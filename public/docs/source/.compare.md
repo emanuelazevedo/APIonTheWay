@@ -55,26 +55,17 @@ fetch(url, {
         "email": "emanuel@mail",
         "email_verified_at": null,
         "avatar": "default-avatar.png",
-        "created_at": "2019-01-22 15:12:11",
-        "updated_at": "2019-01-22 15:12:11"
+        "created_at": "2019-01-27 22:14:27",
+        "updated_at": "2019-01-27 22:14:27"
     },
     {
         "id": 2,
         "name": "leo",
-        "email": "meumail@mail.com",
+        "email": "leo@mail",
         "email_verified_at": null,
-        "avatar": "1548171476.jpg",
-        "created_at": "2019-01-22 15:12:11",
-        "updated_at": "2019-01-22 15:37:56"
-    },
-    {
-        "id": 3,
-        "name": "teste",
-        "email": "patch@mail.com",
-        "email_verified_at": null,
-        "avatar": "1548169942.jpg",
-        "created_at": "2019-01-22 15:12:22",
-        "updated_at": "2019-01-22 15:12:22"
+        "avatar": "default-avatar.png",
+        "created_at": "2019-01-27 22:14:27",
+        "updated_at": "2019-01-27 22:14:27"
     }
 ]
 ```
@@ -91,10 +82,10 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/user"     -d "Name"="sAGdS2A4MRlgKNE0" \
-    -d "Password"="8d1WzsIhIbf7mYfE" \
-    -d "Email"="nOMZTKurYm2xzu2N" \
-    -d "Avatar"="QdRYhoCOvhrlmill" 
+curl -X POST "http://localhost/api/user"     -d "Name"="GFGYLSFSdkA8kD2d" \
+    -d "Password"="rTVAAkkXAqaYlgKa" \
+    -d "Email"="V7XyFxHMTVU5wBkM" \
+    -d "Avatar"="gnunub8bqGVC7B0b" 
 ```
 
 ```javascript
@@ -106,10 +97,10 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "Name": "sAGdS2A4MRlgKNE0",
-    "Password": "8d1WzsIhIbf7mYfE",
-    "Email": "nOMZTKurYm2xzu2N",
-    "Avatar": "QdRYhoCOvhrlmill",
+    "Name": "GFGYLSFSdkA8kD2d",
+    "Password": "rTVAAkkXAqaYlgKa",
+    "Email": "V7XyFxHMTVU5wBkM",
+    "Avatar": "gnunub8bqGVC7B0b",
 })
 
 fetch(url, {
@@ -170,27 +161,10 @@ fetch(url, {
     "email": "emanuel@mail",
     "email_verified_at": null,
     "avatar": "default-avatar.png",
-    "created_at": "2019-01-22 15:12:11",
-    "updated_at": "2019-01-22 15:12:11",
-    "media": "14.0000",
-    "viagems": [
-        {
-            "id": 1,
-            "origem": "aveiro",
-            "destino": "porto",
-            "dataInicio": "2019-01-02",
-            "dataFim": "2019-01-02",
-            "horaInicio": "00:00:00",
-            "horaFim": "12:00:00",
-            "estado": "pendente",
-            "preco": 10,
-            "user_id": 1,
-            "produto_id": null,
-            "tipo_id": 1,
-            "created_at": "2019-01-22 15:18:53",
-            "updated_at": "2019-01-22 15:18:53"
-        }
-    ]
+    "created_at": "2019-01-27 22:14:27",
+    "updated_at": "2019-01-27 22:14:27",
+    "media": "5.0000",
+    "produtos": []
 }
 ```
 
@@ -206,10 +180,10 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/user/{user}"     -d "Name"="EGZkZyt1AtCQkmvc" \
-    -d "Password"="2WgOadTNUfBgjCty" \
-    -d "Email"="HMZR32m6kKQ6h2rJ" \
-    -d "Avatar"="wZWSkdDNSvom4AkF" 
+curl -X PUT "http://localhost/api/user/{user}"     -d "Name"="Rpv7zHpveMT3hGW8" \
+    -d "Password"="NQqlvnSYRf3Au3KH" \
+    -d "Email"="0N4bLR6uiEJd9erv" \
+    -d "Avatar"="SLj2zNlOMyLXfPCn" 
 ```
 
 ```javascript
@@ -221,10 +195,10 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "Name": "EGZkZyt1AtCQkmvc",
-    "Password": "2WgOadTNUfBgjCty",
-    "Email": "HMZR32m6kKQ6h2rJ",
-    "Avatar": "wZWSkdDNSvom4AkF",
+    "Name": "Rpv7zHpveMT3hGW8",
+    "Password": "NQqlvnSYRf3Au3KH",
+    "Email": "0N4bLR6uiEJd9erv",
+    "Avatar": "SLj2zNlOMyLXfPCn",
 })
 
 fetch(url, {
@@ -318,24 +292,15 @@ fetch(url, {
         "id": 1,
         "origem": "aveiro",
         "destino": "porto",
-        "dataInicio": "2019-01-02",
-        "dataFim": "2019-01-02",
+        "data": "2019-12-12",
         "horaInicio": "00:00:00",
         "horaFim": "12:00:00",
-        "estado": "pendente",
         "preco": 10,
         "user_id": 1,
-        "produto_id": null,
         "tipo_id": 1,
-        "created_at": "2019-01-22 15:18:53",
-        "updated_at": "2019-01-22 15:18:53",
-        "tipo": {
-            "id": 1,
-            "tipoViagem": "viagem criada",
-            "created_at": "2019-01-22 15:12:11",
-            "updated_at": "2019-01-22 15:12:11"
-        },
-        "produto": null
+        "estado_id": 1,
+        "created_at": "2019-01-27 22:19:35",
+        "updated_at": "2019-01-27 22:19:35"
     }
 ]
 ```
@@ -352,18 +317,14 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/viagem"     -d "origem"="yyjlZNnXvSLPbPlo" \
-    -d "destino"="eymeM0jDjbgQ9TCT" \
-    -d "dataInicio"="dGaBYYKZxQdOoz1n" \
-    -d "dataFim"="QSyBjjeXVM6G3rBQ" \
-    -d "horaInicio"="jztIjh6PgLDj2FfL" \
-    -d "horaFim"="OpyVd9WGOC0qh5D6" \
-    -d "user_id"="7" \
-    -d "tipo_id"="9" \
-    -d "tamanho"="BRKuc9dcvnCtg7pS" \
-    -d "nome"="Hou6Ohx49VB06sbA" \
-    -d "foto"="LdfEk787W0ktCafk" \
-    -d "preco"="11" 
+curl -X POST "http://localhost/api/viagem"     -d "origem"="l4bZeFX3IRDUGkVL" \
+    -d "destino"="ZvlZ1tFy4MKWV8Fs" \
+    -d "data"="PdLi0WLXA8SgWdMw" \
+    -d "horaInicio"="PDdBq2mpWaVB5NRZ" \
+    -d "horaFim"="fK7XRMY95WYCoi8l" \
+    -d "user_id"="13" \
+    -d "tipo_id"="17" \
+    -d "preco"="17" 
 ```
 
 ```javascript
@@ -375,18 +336,14 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "origem": "yyjlZNnXvSLPbPlo",
-    "destino": "eymeM0jDjbgQ9TCT",
-    "dataInicio": "dGaBYYKZxQdOoz1n",
-    "dataFim": "QSyBjjeXVM6G3rBQ",
-    "horaInicio": "jztIjh6PgLDj2FfL",
-    "horaFim": "OpyVd9WGOC0qh5D6",
-    "user_id": "7",
-    "tipo_id": "9",
-    "tamanho": "BRKuc9dcvnCtg7pS",
-    "nome": "Hou6Ohx49VB06sbA",
-    "foto": "LdfEk787W0ktCafk",
-    "preco": "11",
+    "origem": "l4bZeFX3IRDUGkVL",
+    "destino": "ZvlZ1tFy4MKWV8Fs",
+    "data": "PdLi0WLXA8SgWdMw",
+    "horaInicio": "PDdBq2mpWaVB5NRZ",
+    "horaFim": "fK7XRMY95WYCoi8l",
+    "user_id": "13",
+    "tipo_id": "17",
+    "preco": "17",
 })
 
 fetch(url, {
@@ -408,15 +365,11 @@ Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     origem | string |  required  | Origem da viagem
     destino | string |  required  | Destino da viagem
-    dataInicio | date |  required  | Data de inicio da viagem
-    dataFim | date |  required  | Data de fim da viagem
+    data | date |  required  | Data da viagem
     horaInicio | time |  required  | Hora de inicio da viagem
     horaFim | time |  required  | Hora de fim da viagem
     user_id | integer |  required  | Criador da viagem
     tipo_id | integer |  required  | Tipo de viagem
-    tamanho | string |  optional  | Tamanho do produto caso seja pedido de viagem
-    nome | string |  optional  | Nome do produto caso seja pedido de viagem
-    foto | file |  optional  | Foto do produto caso seja pedido de viagem
     preco | integer |  optional  | Preco da viagem caso seja viagem criada
 
 <!-- END_889352be0fa4105fec64f682987d4a0d -->
@@ -453,24 +406,15 @@ fetch(url, {
     "id": 1,
     "origem": "aveiro",
     "destino": "porto",
-    "dataInicio": "2019-01-02",
-    "dataFim": "2019-01-02",
+    "data": "2019-12-12",
     "horaInicio": "00:00:00",
     "horaFim": "12:00:00",
-    "estado": "pendente",
     "preco": 10,
     "user_id": 1,
-    "produto_id": null,
     "tipo_id": 1,
-    "created_at": "2019-01-22 15:18:53",
-    "updated_at": "2019-01-22 15:18:53",
-    "tipo": {
-        "id": 1,
-        "tipoViagem": "viagem criada",
-        "created_at": "2019-01-22 15:12:11",
-        "updated_at": "2019-01-22 15:12:11"
-    },
-    "produto": null
+    "estado_id": 1,
+    "created_at": "2019-01-27 22:19:35",
+    "updated_at": "2019-01-27 22:19:35"
 }
 ```
 
@@ -486,7 +430,7 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/viagem/{viagem}"     -d "estado"="hNUY8RZu8Z8vFXLT" 
+curl -X PUT "http://localhost/api/viagem/{viagem}"     -d "estado"="19" 
 ```
 
 ```javascript
@@ -498,7 +442,7 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "estado": "hNUY8RZu8Z8vFXLT",
+    "estado": "19",
 })
 
 fetch(url, {
@@ -520,7 +464,7 @@ fetch(url, {
 
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
-    estado | required |  optional  | string Estado da viagem
+    estado | integer |  required  | id Estado da viagem
 
 <!-- END_dbc331269073970ac565ffd3d05b57d6 -->
 
@@ -562,12 +506,11 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/viagem/search"     -d "origem"="CeBXXqyEljM4b36n" \
-    -d "destino"="99b9vnYm4iv3jKuX" \
-    -d "dataInicio"="Qv4gEPLrmbUXCsYc" \
-    -d "dataFim"="hRJs8m19kHjS7aC9" \
-    -d "horaInicio"="8ahudB63NQItD7lf" \
-    -d "horaFim"="wAILtKFRhoHU3dCL" 
+curl -X POST "http://localhost/api/viagem/search"     -d "origem"="fhMA4qoafqVUrwto" \
+    -d "destino"="x9qJjxBEZ9aIUCYW" \
+    -d "data"="3vsYr1ZYMPikzjiU" \
+    -d "horaInicio"="5BTgBHWmCenkD6LX" \
+    -d "horaFim"="R60a9kwy74oBe9HL" 
 ```
 
 ```javascript
@@ -579,12 +522,11 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "origem": "CeBXXqyEljM4b36n",
-    "destino": "99b9vnYm4iv3jKuX",
-    "dataInicio": "Qv4gEPLrmbUXCsYc",
-    "dataFim": "hRJs8m19kHjS7aC9",
-    "horaInicio": "8ahudB63NQItD7lf",
-    "horaFim": "wAILtKFRhoHU3dCL",
+    "origem": "fhMA4qoafqVUrwto",
+    "destino": "x9qJjxBEZ9aIUCYW",
+    "data": "3vsYr1ZYMPikzjiU",
+    "horaInicio": "5BTgBHWmCenkD6LX",
+    "horaFim": "R60a9kwy74oBe9HL",
 })
 
 fetch(url, {
@@ -606,8 +548,7 @@ Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     origem | string |  required  | Origem da viagem
     destino | string |  required  | Destino da viagem
-    dataInicio | date |  required  | Data de inicio da viagem
-    dataFim | date |  required  | Data de fim da viagem
+    data | date |  required  | Data da viagem
     horaInicio | time |  required  | Hora de inicio da viagem
     horaFim | time |  required  | Hora de fim da viagem
 
@@ -819,16 +760,10 @@ fetch(url, {
         "nome": "cadeira",
         "tamanho": "pequeno",
         "foto": null,
-        "created_at": "2019-01-23 15:53:23",
-        "updated_at": "2019-01-23 15:53:23"
-    },
-    {
-        "id": 2,
-        "nome": "cadeira",
-        "tamanho": "pequeno",
-        "foto": null,
-        "created_at": "2019-01-23 16:01:09",
-        "updated_at": "2019-01-23 16:01:09"
+        "viagems_id": 1,
+        "user_id": 2,
+        "created_at": "2019-01-27 22:25:27",
+        "updated_at": "2019-01-27 22:25:27"
     }
 ]
 ```
@@ -845,8 +780,10 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/produto"     -d "tamanho"="W5m30gsuEqAF0XWc" \
-    -d "nome"="zv6HhVu61Y4riovk" 
+curl -X POST "http://localhost/api/produto"     -d "tamanho"="dMO8zSn8CEhcVsYH" \
+    -d "nome"="gMbDRJJDFmT9RWdu" \
+    -d "viagems_id"="7" \
+    -d "user_id"="4" 
 ```
 
 ```javascript
@@ -858,8 +795,10 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "tamanho": "W5m30gsuEqAF0XWc",
-    "nome": "zv6HhVu61Y4riovk",
+    "tamanho": "dMO8zSn8CEhcVsYH",
+    "nome": "gMbDRJJDFmT9RWdu",
+    "viagems_id": "7",
+    "user_id": "4",
 })
 
 fetch(url, {
@@ -881,6 +820,8 @@ Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     tamanho | string |  required  | Tamanho do produto
     nome | string |  required  | Nome do produto
+    viagems_id | integer |  required  | Viagem a associar o produto
+    user_id | integer |  required  | User a associar o produto
 
 <!-- END_a2004754d7dd7a2d32cdb988d6bdfee0 -->
 
@@ -917,8 +858,24 @@ fetch(url, {
     "nome": "cadeira",
     "tamanho": "pequeno",
     "foto": null,
-    "created_at": "2019-01-23 15:53:23",
-    "updated_at": "2019-01-23 15:53:23"
+    "viagems_id": 1,
+    "user_id": 2,
+    "created_at": "2019-01-27 22:25:27",
+    "updated_at": "2019-01-27 22:25:27",
+    "viagems": {
+        "id": 1,
+        "origem": "aveiro",
+        "destino": "porto",
+        "data": "2019-12-12",
+        "horaInicio": "00:00:00",
+        "horaFim": "12:00:00",
+        "preco": 10,
+        "user_id": 1,
+        "tipo_id": 1,
+        "estado_id": 1,
+        "created_at": "2019-01-27 22:19:35",
+        "updated_at": "2019-01-27 22:19:35"
+    }
 }
 ```
 
@@ -934,8 +891,8 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X PUT "http://localhost/api/produto/{produto}"     -d "tamanho"="uKvqqSGwBYtw9wJh" \
-    -d "nome"="m3jpMkrW8gnEg7PG" 
+curl -X PUT "http://localhost/api/produto/{produto}"     -d "tamanho"="iaDPC4t82gu6nGbF" \
+    -d "nome"="pO1zNefplz5isYcJ" 
 ```
 
 ```javascript
@@ -947,8 +904,8 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "tamanho": "uKvqqSGwBYtw9wJh",
-    "nome": "m3jpMkrW8gnEg7PG",
+    "tamanho": "iaDPC4t82gu6nGbF",
+    "nome": "pO1zNefplz5isYcJ",
 })
 
 fetch(url, {
@@ -1038,30 +995,21 @@ fetch(url, {
 [
     {
         "id": 1,
-        "nota": 20,
+        "nota": 3,
         "comentario": "teste",
-        "user_id": 1,
+        "user_id": 2,
         "viagems_id": 1,
-        "created_at": "2019-01-23 16:27:13",
-        "updated_at": "2019-01-23 16:27:13"
+        "created_at": "2019-01-27 22:27:01",
+        "updated_at": "2019-01-27 22:27:01"
     },
     {
         "id": 2,
-        "nota": 20,
-        "comentario": "teste",
+        "nota": 5,
+        "comentario": null,
         "user_id": 1,
         "viagems_id": 1,
-        "created_at": "2019-01-23 16:35:01",
-        "updated_at": "2019-01-23 16:35:01"
-    },
-    {
-        "id": 3,
-        "nota": 2,
-        "comentario": "teste",
-        "user_id": 1,
-        "viagems_id": 1,
-        "created_at": "2019-01-23 16:39:56",
-        "updated_at": "2019-01-23 16:39:56"
+        "created_at": "2019-01-27 22:27:14",
+        "updated_at": "2019-01-27 22:27:14"
     }
 ]
 ```
@@ -1078,10 +1026,10 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X POST "http://localhost/api/review"     -d "nota"="9" \
-    -d "comentario"="YvKshjqSKGYuOmHQ" \
-    -d "user_id"="2" \
-    -d "viagems_id"="7" 
+curl -X POST "http://localhost/api/review"     -d "nota"="4" \
+    -d "comentario"="bhczt2bCqft8pzwj" \
+    -d "user_id"="1" \
+    -d "viagems_id"="20" 
 ```
 
 ```javascript
@@ -1093,10 +1041,10 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "nota": "9",
-    "comentario": "YvKshjqSKGYuOmHQ",
-    "user_id": "2",
-    "viagems_id": "7",
+    "nota": "4",
+    "comentario": "bhczt2bCqft8pzwj",
+    "user_id": "1",
+    "viagems_id": "20",
 })
 
 fetch(url, {
@@ -1153,20 +1101,20 @@ fetch(url, {
 ```json
 {
     "id": 1,
-    "nota": 20,
+    "nota": 3,
     "comentario": "teste",
-    "user_id": 1,
+    "user_id": 2,
     "viagems_id": 1,
-    "created_at": "2019-01-23 16:27:13",
-    "updated_at": "2019-01-23 16:27:13",
+    "created_at": "2019-01-27 22:27:01",
+    "updated_at": "2019-01-27 22:27:01",
     "user": {
-        "id": 1,
-        "name": "emanuel",
-        "email": "emanuel@mail",
+        "id": 2,
+        "name": "leo",
+        "email": "leo@mail",
         "email_verified_at": null,
         "avatar": "default-avatar.png",
-        "created_at": "2019-01-22 15:12:11",
-        "updated_at": "2019-01-22 15:12:11"
+        "created_at": "2019-01-27 22:14:27",
+        "updated_at": "2019-01-27 22:14:27"
     }
 }
 ```

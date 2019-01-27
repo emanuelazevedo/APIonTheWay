@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ProdutoCreateRequest;
 use App\Http\Requests\ProdutoUpdateRequest;
 use Validator;
+use Image;
 
 class ProdutoController extends Controller
 {
@@ -53,10 +54,9 @@ class ProdutoController extends Controller
         if($request->hasFile('foto')){
             $foto = $request->file('foto');
             $filename = time() . "." . $foto->getClientOriginalExtension();
-            Image::make($foto)->resize(300, 300)->save(public_path('uploads/produtos' . $filename));
+            Image::make($foto)->resize(300, 300)->save(public_path('uploads/produtos/' . $filename));
             
-            $produto->foto = $filename;
-            $produto->save();
+            $data['foto'] = $filename;
         }
         $produto = Produto::create($data);
         return Response([

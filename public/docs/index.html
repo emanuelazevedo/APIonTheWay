@@ -77,26 +77,17 @@ fetch(url, {
         "email": "emanuel@mail",
         "email_verified_at": null,
         "avatar": "default-avatar.png",
-        "created_at": "2019-01-22 15:12:11",
-        "updated_at": "2019-01-22 15:12:11"
+        "created_at": "2019-01-27 22:14:27",
+        "updated_at": "2019-01-27 22:14:27"
     },
     {
         "id": 2,
         "name": "leo",
-        "email": "meumail@mail.com",
+        "email": "leo@mail",
         "email_verified_at": null,
-        "avatar": "1548171476.jpg",
-        "created_at": "2019-01-22 15:12:11",
-        "updated_at": "2019-01-22 15:37:56"
-    },
-    {
-        "id": 3,
-        "name": "teste",
-        "email": "patch@mail.com",
-        "email_verified_at": null,
-        "avatar": "1548169942.jpg",
-        "created_at": "2019-01-22 15:12:22",
-        "updated_at": "2019-01-22 15:12:22"
+        "avatar": "default-avatar.png",
+        "created_at": "2019-01-27 22:14:27",
+        "updated_at": "2019-01-27 22:14:27"
     }
 ]</code></pre>
 <h3>HTTP Request</h3>
@@ -107,10 +98,10 @@ fetch(url, {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost/api/user"     -d "Name"="sAGdS2A4MRlgKNE0" \
-    -d "Password"="8d1WzsIhIbf7mYfE" \
-    -d "Email"="nOMZTKurYm2xzu2N" \
-    -d "Avatar"="QdRYhoCOvhrlmill" </code></pre>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/user"     -d "Name"="GFGYLSFSdkA8kD2d" \
+    -d "Password"="rTVAAkkXAqaYlgKa" \
+    -d "Email"="V7XyFxHMTVU5wBkM" \
+    -d "Avatar"="gnunub8bqGVC7B0b" </code></pre>
 <pre><code class="language-javascript">const url = new URL("http://localhost/api/user");
 
 let headers = {
@@ -119,10 +110,10 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "Name": "sAGdS2A4MRlgKNE0",
-    "Password": "8d1WzsIhIbf7mYfE",
-    "Email": "nOMZTKurYm2xzu2N",
-    "Avatar": "QdRYhoCOvhrlmill",
+    "Name": "GFGYLSFSdkA8kD2d",
+    "Password": "rTVAAkkXAqaYlgKa",
+    "Email": "V7XyFxHMTVU5wBkM",
+    "Avatar": "gnunub8bqGVC7B0b",
 })
 
 fetch(url, {
@@ -200,27 +191,10 @@ fetch(url, {
     "email": "emanuel@mail",
     "email_verified_at": null,
     "avatar": "default-avatar.png",
-    "created_at": "2019-01-22 15:12:11",
-    "updated_at": "2019-01-22 15:12:11",
-    "media": "14.0000",
-    "viagems": [
-        {
-            "id": 1,
-            "origem": "aveiro",
-            "destino": "porto",
-            "dataInicio": "2019-01-02",
-            "dataFim": "2019-01-02",
-            "horaInicio": "00:00:00",
-            "horaFim": "12:00:00",
-            "estado": "pendente",
-            "preco": 10,
-            "user_id": 1,
-            "produto_id": null,
-            "tipo_id": 1,
-            "created_at": "2019-01-22 15:18:53",
-            "updated_at": "2019-01-22 15:18:53"
-        }
-    ]
+    "created_at": "2019-01-27 22:14:27",
+    "updated_at": "2019-01-27 22:14:27",
+    "media": "5.0000",
+    "produtos": []
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/user/{user}</code></p>
@@ -230,10 +204,10 @@ fetch(url, {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PUT "http://localhost/api/user/{user}"     -d "Name"="EGZkZyt1AtCQkmvc" \
-    -d "Password"="2WgOadTNUfBgjCty" \
-    -d "Email"="HMZR32m6kKQ6h2rJ" \
-    -d "Avatar"="wZWSkdDNSvom4AkF" </code></pre>
+<pre><code class="language-bash">curl -X PUT "http://localhost/api/user/{user}"     -d "Name"="Rpv7zHpveMT3hGW8" \
+    -d "Password"="NQqlvnSYRf3Au3KH" \
+    -d "Email"="0N4bLR6uiEJd9erv" \
+    -d "Avatar"="SLj2zNlOMyLXfPCn" </code></pre>
 <pre><code class="language-javascript">const url = new URL("http://localhost/api/user/{user}");
 
 let headers = {
@@ -242,10 +216,10 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "Name": "EGZkZyt1AtCQkmvc",
-    "Password": "2WgOadTNUfBgjCty",
-    "Email": "HMZR32m6kKQ6h2rJ",
-    "Avatar": "wZWSkdDNSvom4AkF",
+    "Name": "Rpv7zHpveMT3hGW8",
+    "Password": "NQqlvnSYRf3Au3KH",
+    "Email": "0N4bLR6uiEJd9erv",
+    "Avatar": "SLj2zNlOMyLXfPCn",
 })
 
 fetch(url, {
@@ -345,24 +319,15 @@ fetch(url, {
         "id": 1,
         "origem": "aveiro",
         "destino": "porto",
-        "dataInicio": "2019-01-02",
-        "dataFim": "2019-01-02",
+        "data": "2019-12-12",
         "horaInicio": "00:00:00",
         "horaFim": "12:00:00",
-        "estado": "pendente",
         "preco": 10,
         "user_id": 1,
-        "produto_id": null,
         "tipo_id": 1,
-        "created_at": "2019-01-22 15:18:53",
-        "updated_at": "2019-01-22 15:18:53",
-        "tipo": {
-            "id": 1,
-            "tipoViagem": "viagem criada",
-            "created_at": "2019-01-22 15:12:11",
-            "updated_at": "2019-01-22 15:12:11"
-        },
-        "produto": null
+        "estado_id": 1,
+        "created_at": "2019-01-27 22:19:35",
+        "updated_at": "2019-01-27 22:19:35"
     }
 ]</code></pre>
 <h3>HTTP Request</h3>
@@ -373,18 +338,14 @@ fetch(url, {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost/api/viagem"     -d "origem"="yyjlZNnXvSLPbPlo" \
-    -d "destino"="eymeM0jDjbgQ9TCT" \
-    -d "dataInicio"="dGaBYYKZxQdOoz1n" \
-    -d "dataFim"="QSyBjjeXVM6G3rBQ" \
-    -d "horaInicio"="jztIjh6PgLDj2FfL" \
-    -d "horaFim"="OpyVd9WGOC0qh5D6" \
-    -d "user_id"="7" \
-    -d "tipo_id"="9" \
-    -d "tamanho"="BRKuc9dcvnCtg7pS" \
-    -d "nome"="Hou6Ohx49VB06sbA" \
-    -d "foto"="LdfEk787W0ktCafk" \
-    -d "preco"="11" </code></pre>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/viagem"     -d "origem"="l4bZeFX3IRDUGkVL" \
+    -d "destino"="ZvlZ1tFy4MKWV8Fs" \
+    -d "data"="PdLi0WLXA8SgWdMw" \
+    -d "horaInicio"="PDdBq2mpWaVB5NRZ" \
+    -d "horaFim"="fK7XRMY95WYCoi8l" \
+    -d "user_id"="13" \
+    -d "tipo_id"="17" \
+    -d "preco"="17" </code></pre>
 <pre><code class="language-javascript">const url = new URL("http://localhost/api/viagem");
 
 let headers = {
@@ -393,18 +354,14 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "origem": "yyjlZNnXvSLPbPlo",
-    "destino": "eymeM0jDjbgQ9TCT",
-    "dataInicio": "dGaBYYKZxQdOoz1n",
-    "dataFim": "QSyBjjeXVM6G3rBQ",
-    "horaInicio": "jztIjh6PgLDj2FfL",
-    "horaFim": "OpyVd9WGOC0qh5D6",
-    "user_id": "7",
-    "tipo_id": "9",
-    "tamanho": "BRKuc9dcvnCtg7pS",
-    "nome": "Hou6Ohx49VB06sbA",
-    "foto": "LdfEk787W0ktCafk",
-    "preco": "11",
+    "origem": "l4bZeFX3IRDUGkVL",
+    "destino": "ZvlZ1tFy4MKWV8Fs",
+    "data": "PdLi0WLXA8SgWdMw",
+    "horaInicio": "PDdBq2mpWaVB5NRZ",
+    "horaFim": "fK7XRMY95WYCoi8l",
+    "user_id": "13",
+    "tipo_id": "17",
+    "preco": "17",
 })
 
 fetch(url, {
@@ -440,16 +397,10 @@ fetch(url, {
 <td>Destino da viagem</td>
 </tr>
 <tr>
-<td>dataInicio</td>
+<td>data</td>
 <td>date</td>
 <td>required</td>
-<td>Data de inicio da viagem</td>
-</tr>
-<tr>
-<td>dataFim</td>
-<td>date</td>
-<td>required</td>
-<td>Data de fim da viagem</td>
+<td>Data da viagem</td>
 </tr>
 <tr>
 <td>horaInicio</td>
@@ -474,24 +425,6 @@ fetch(url, {
 <td>integer</td>
 <td>required</td>
 <td>Tipo de viagem</td>
-</tr>
-<tr>
-<td>tamanho</td>
-<td>string</td>
-<td>optional</td>
-<td>Tamanho do produto caso seja pedido de viagem</td>
-</tr>
-<tr>
-<td>nome</td>
-<td>string</td>
-<td>optional</td>
-<td>Nome do produto caso seja pedido de viagem</td>
-</tr>
-<tr>
-<td>foto</td>
-<td>file</td>
-<td>optional</td>
-<td>Foto do produto caso seja pedido de viagem</td>
 </tr>
 <tr>
 <td>preco</td>
@@ -528,24 +461,15 @@ fetch(url, {
     "id": 1,
     "origem": "aveiro",
     "destino": "porto",
-    "dataInicio": "2019-01-02",
-    "dataFim": "2019-01-02",
+    "data": "2019-12-12",
     "horaInicio": "00:00:00",
     "horaFim": "12:00:00",
-    "estado": "pendente",
     "preco": 10,
     "user_id": 1,
-    "produto_id": null,
     "tipo_id": 1,
-    "created_at": "2019-01-22 15:18:53",
-    "updated_at": "2019-01-22 15:18:53",
-    "tipo": {
-        "id": 1,
-        "tipoViagem": "viagem criada",
-        "created_at": "2019-01-22 15:12:11",
-        "updated_at": "2019-01-22 15:12:11"
-    },
-    "produto": null
+    "estado_id": 1,
+    "created_at": "2019-01-27 22:19:35",
+    "updated_at": "2019-01-27 22:19:35"
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/viagem/{viagem}</code></p>
@@ -555,7 +479,7 @@ fetch(url, {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PUT "http://localhost/api/viagem/{viagem}"     -d "estado"="hNUY8RZu8Z8vFXLT" </code></pre>
+<pre><code class="language-bash">curl -X PUT "http://localhost/api/viagem/{viagem}"     -d "estado"="19" </code></pre>
 <pre><code class="language-javascript">const url = new URL("http://localhost/api/viagem/{viagem}");
 
 let headers = {
@@ -564,7 +488,7 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "estado": "hNUY8RZu8Z8vFXLT",
+    "estado": "19",
 })
 
 fetch(url, {
@@ -590,9 +514,9 @@ fetch(url, {
 <tbody>
 <tr>
 <td>estado</td>
+<td>integer</td>
 <td>required</td>
-<td>optional</td>
-<td>string Estado da viagem</td>
+<td>id Estado da viagem</td>
 </tr>
 </tbody>
 </table>
@@ -624,12 +548,11 @@ fetch(url, {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost/api/viagem/search"     -d "origem"="CeBXXqyEljM4b36n" \
-    -d "destino"="99b9vnYm4iv3jKuX" \
-    -d "dataInicio"="Qv4gEPLrmbUXCsYc" \
-    -d "dataFim"="hRJs8m19kHjS7aC9" \
-    -d "horaInicio"="8ahudB63NQItD7lf" \
-    -d "horaFim"="wAILtKFRhoHU3dCL" </code></pre>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/viagem/search"     -d "origem"="fhMA4qoafqVUrwto" \
+    -d "destino"="x9qJjxBEZ9aIUCYW" \
+    -d "data"="3vsYr1ZYMPikzjiU" \
+    -d "horaInicio"="5BTgBHWmCenkD6LX" \
+    -d "horaFim"="R60a9kwy74oBe9HL" </code></pre>
 <pre><code class="language-javascript">const url = new URL("http://localhost/api/viagem/search");
 
 let headers = {
@@ -638,12 +561,11 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "origem": "CeBXXqyEljM4b36n",
-    "destino": "99b9vnYm4iv3jKuX",
-    "dataInicio": "Qv4gEPLrmbUXCsYc",
-    "dataFim": "hRJs8m19kHjS7aC9",
-    "horaInicio": "8ahudB63NQItD7lf",
-    "horaFim": "wAILtKFRhoHU3dCL",
+    "origem": "fhMA4qoafqVUrwto",
+    "destino": "x9qJjxBEZ9aIUCYW",
+    "data": "3vsYr1ZYMPikzjiU",
+    "horaInicio": "5BTgBHWmCenkD6LX",
+    "horaFim": "R60a9kwy74oBe9HL",
 })
 
 fetch(url, {
@@ -679,16 +601,10 @@ fetch(url, {
 <td>Destino da viagem</td>
 </tr>
 <tr>
-<td>dataInicio</td>
+<td>data</td>
 <td>date</td>
 <td>required</td>
-<td>Data de inicio da viagem</td>
-</tr>
-<tr>
-<td>dataFim</td>
-<td>date</td>
-<td>required</td>
-<td>Data de fim da viagem</td>
+<td>Data da viagem</td>
 </tr>
 <tr>
 <td>horaInicio</td>
@@ -852,16 +768,10 @@ fetch(url, {
         "nome": "cadeira",
         "tamanho": "pequeno",
         "foto": null,
-        "created_at": "2019-01-23 15:53:23",
-        "updated_at": "2019-01-23 15:53:23"
-    },
-    {
-        "id": 2,
-        "nome": "cadeira",
-        "tamanho": "pequeno",
-        "foto": null,
-        "created_at": "2019-01-23 16:01:09",
-        "updated_at": "2019-01-23 16:01:09"
+        "viagems_id": 1,
+        "user_id": 2,
+        "created_at": "2019-01-27 22:25:27",
+        "updated_at": "2019-01-27 22:25:27"
     }
 ]</code></pre>
 <h3>HTTP Request</h3>
@@ -872,8 +782,10 @@ fetch(url, {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost/api/produto"     -d "tamanho"="W5m30gsuEqAF0XWc" \
-    -d "nome"="zv6HhVu61Y4riovk" </code></pre>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/produto"     -d "tamanho"="dMO8zSn8CEhcVsYH" \
+    -d "nome"="gMbDRJJDFmT9RWdu" \
+    -d "viagems_id"="7" \
+    -d "user_id"="4" </code></pre>
 <pre><code class="language-javascript">const url = new URL("http://localhost/api/produto");
 
 let headers = {
@@ -882,8 +794,10 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "tamanho": "W5m30gsuEqAF0XWc",
-    "nome": "zv6HhVu61Y4riovk",
+    "tamanho": "dMO8zSn8CEhcVsYH",
+    "nome": "gMbDRJJDFmT9RWdu",
+    "viagems_id": "7",
+    "user_id": "4",
 })
 
 fetch(url, {
@@ -918,6 +832,18 @@ fetch(url, {
 <td>required</td>
 <td>Nome do produto</td>
 </tr>
+<tr>
+<td>viagems_id</td>
+<td>integer</td>
+<td>required</td>
+<td>Viagem a associar o produto</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>integer</td>
+<td>required</td>
+<td>User a associar o produto</td>
+</tr>
 </tbody>
 </table>
 <!-- END_a2004754d7dd7a2d32cdb988d6bdfee0 -->
@@ -948,8 +874,24 @@ fetch(url, {
     "nome": "cadeira",
     "tamanho": "pequeno",
     "foto": null,
-    "created_at": "2019-01-23 15:53:23",
-    "updated_at": "2019-01-23 15:53:23"
+    "viagems_id": 1,
+    "user_id": 2,
+    "created_at": "2019-01-27 22:25:27",
+    "updated_at": "2019-01-27 22:25:27",
+    "viagems": {
+        "id": 1,
+        "origem": "aveiro",
+        "destino": "porto",
+        "data": "2019-12-12",
+        "horaInicio": "00:00:00",
+        "horaFim": "12:00:00",
+        "preco": 10,
+        "user_id": 1,
+        "tipo_id": 1,
+        "estado_id": 1,
+        "created_at": "2019-01-27 22:19:35",
+        "updated_at": "2019-01-27 22:19:35"
+    }
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/produto/{produto}</code></p>
@@ -959,8 +901,8 @@ fetch(url, {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PUT "http://localhost/api/produto/{produto}"     -d "tamanho"="uKvqqSGwBYtw9wJh" \
-    -d "nome"="m3jpMkrW8gnEg7PG" </code></pre>
+<pre><code class="language-bash">curl -X PUT "http://localhost/api/produto/{produto}"     -d "tamanho"="iaDPC4t82gu6nGbF" \
+    -d "nome"="pO1zNefplz5isYcJ" </code></pre>
 <pre><code class="language-javascript">const url = new URL("http://localhost/api/produto/{produto}");
 
 let headers = {
@@ -969,8 +911,8 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "tamanho": "uKvqqSGwBYtw9wJh",
-    "nome": "m3jpMkrW8gnEg7PG",
+    "tamanho": "iaDPC4t82gu6nGbF",
+    "nome": "pO1zNefplz5isYcJ",
 })
 
 fetch(url, {
@@ -1056,30 +998,21 @@ fetch(url, {
 <pre><code class="language-json">[
     {
         "id": 1,
-        "nota": 20,
+        "nota": 3,
         "comentario": "teste",
-        "user_id": 1,
+        "user_id": 2,
         "viagems_id": 1,
-        "created_at": "2019-01-23 16:27:13",
-        "updated_at": "2019-01-23 16:27:13"
+        "created_at": "2019-01-27 22:27:01",
+        "updated_at": "2019-01-27 22:27:01"
     },
     {
         "id": 2,
-        "nota": 20,
-        "comentario": "teste",
+        "nota": 5,
+        "comentario": null,
         "user_id": 1,
         "viagems_id": 1,
-        "created_at": "2019-01-23 16:35:01",
-        "updated_at": "2019-01-23 16:35:01"
-    },
-    {
-        "id": 3,
-        "nota": 2,
-        "comentario": "teste",
-        "user_id": 1,
-        "viagems_id": 1,
-        "created_at": "2019-01-23 16:39:56",
-        "updated_at": "2019-01-23 16:39:56"
+        "created_at": "2019-01-27 22:27:14",
+        "updated_at": "2019-01-27 22:27:14"
     }
 ]</code></pre>
 <h3>HTTP Request</h3>
@@ -1090,10 +1023,10 @@ fetch(url, {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost/api/review"     -d "nota"="9" \
-    -d "comentario"="YvKshjqSKGYuOmHQ" \
-    -d "user_id"="2" \
-    -d "viagems_id"="7" </code></pre>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/review"     -d "nota"="4" \
+    -d "comentario"="bhczt2bCqft8pzwj" \
+    -d "user_id"="1" \
+    -d "viagems_id"="20" </code></pre>
 <pre><code class="language-javascript">const url = new URL("http://localhost/api/review");
 
 let headers = {
@@ -1102,10 +1035,10 @@ let headers = {
 }
 
 let body = JSON.stringify({
-    "nota": "9",
-    "comentario": "YvKshjqSKGYuOmHQ",
-    "user_id": "2",
-    "viagems_id": "7",
+    "nota": "4",
+    "comentario": "bhczt2bCqft8pzwj",
+    "user_id": "1",
+    "viagems_id": "20",
 })
 
 fetch(url, {
@@ -1179,20 +1112,20 @@ fetch(url, {
 </blockquote>
 <pre><code class="language-json">{
     "id": 1,
-    "nota": 20,
+    "nota": 3,
     "comentario": "teste",
-    "user_id": 1,
+    "user_id": 2,
     "viagems_id": 1,
-    "created_at": "2019-01-23 16:27:13",
-    "updated_at": "2019-01-23 16:27:13",
+    "created_at": "2019-01-27 22:27:01",
+    "updated_at": "2019-01-27 22:27:01",
     "user": {
-        "id": 1,
-        "name": "emanuel",
-        "email": "emanuel@mail",
+        "id": 2,
+        "name": "leo",
+        "email": "leo@mail",
         "email_verified_at": null,
         "avatar": "default-avatar.png",
-        "created_at": "2019-01-22 15:12:11",
-        "updated_at": "2019-01-22 15:12:11"
+        "created_at": "2019-01-27 22:14:27",
+        "updated_at": "2019-01-27 22:14:27"
     }
 }</code></pre>
 <h3>HTTP Request</h3>
