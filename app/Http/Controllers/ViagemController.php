@@ -24,7 +24,7 @@ class ViagemController extends Controller
     public function index()
     {
         //
-        $viagens = Viagem::all();
+        $viagem = Viagem::all();
 
         return $viagem;
     }
@@ -59,6 +59,7 @@ class ViagemController extends Controller
         //
         $dataViagem = $request->only(['origem', 'destino', 'data', 'horaInicio', 'horaFim', 'user_id', 'tipo_id', 'preco']);
         $dataViagem['estado_id'] = 1;
+        
 
         // se for viagem criada
         if($request->tipo_id == 1){
@@ -158,7 +159,7 @@ class ViagemController extends Controller
         ->where('tipo_id', 1)
         ->where('origem', $request->origem)
         ->where('destino', $request->destino)
-        ->where('data', $request->dataInicio)
+        ->where('data', $request->data)
         ->where('horaInicio', $request->horaInicio)
         ->where('horaFim', $request->horaFim)->get();
 

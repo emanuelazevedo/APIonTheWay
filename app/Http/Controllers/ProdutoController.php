@@ -37,6 +37,8 @@ class ProdutoController extends Controller
      * 
      * @bodyParam tamanho string required Tamanho do produto
      * @bodyParam nome string required Nome do produto
+     * @bodyParam viagems_id integer required Viagem a associar o produto
+     * @bodyParam user_id integer required User a associar o produto
      * 
      *
      * @param  \Illuminate\Http\Request  $request
