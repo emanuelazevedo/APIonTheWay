@@ -6,6 +6,8 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
+use Illuminate\Validation\Rule;
+
 class UserUpdateRequest extends FormRequest
 {
     /**
@@ -27,7 +29,7 @@ class UserUpdateRequest extends FormRequest
     {
         return [
           'name' => 'required|max:225',
-          'email' => 'required|email|unique:users',
+          'email' => 'required|email|', Rule::unique('users')->ignore($this->id),
           'password' => 'required|min:3',
         ];
     }
@@ -45,9 +47,13 @@ class UserUpdateRequest extends FormRequest
 
     public function messages(){
       return[
-        'name.required' => 'Nome é necessario',
-        'email.required' => 'Email é necessario',
-        'password.required' => 'Password é necessaria'
+        'name.required' => 'Nome é obrigatório',
+        'email.required' => 'Email é obrigatório',
+        'password.required' => 'Password é obrigatório',
+        'name.max' => 'O nome não pode ser tão comprido',
+        'email.unique' => 'Este e-mail já se encontra registado no sistema',
+        'email.email' => 'Este campo tem de ser preenchido com um e-mail',
+        'password.min' => 'A password inserida é muito curta',
       ];
     }
 }

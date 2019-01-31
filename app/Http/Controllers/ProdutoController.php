@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ProdutoCreateRequest;
 use App\Http\Requests\ProdutoUpdateRequest;
 use Validator;
+use Image;
 
 class ProdutoController extends Controller
 {
@@ -34,6 +35,12 @@ class ProdutoController extends Controller
 
     /**
      * Criar um Produto
+     * 
+     * @bodyParam tamanho string required Tamanho do produto
+     * @bodyParam nome string required Nome do produto
+     * @bodyParam viagems_id integer required Viagem a associar o produto
+     * @bodyParam user_id integer required User a associar o produto
+     * 
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -42,7 +49,15 @@ class ProdutoController extends Controller
     {
         //
 
-        $data = $request->only(['tamanho', 'preco', 'peso', 'nome']);
+        $data = $request->only(['tamanho', 'nome', 'viagems_id', 'user_id']);
+
+        if($request->hasFile('foto')){
+            $foto = $request->file('foto');
+            $filename = time() . "." . $foto->getClientOriginalExtension();
+            Image::make($foto)->resize(300, 300)->save(public_path('uploads/produtos/' . $filename));
+            
+            $data['foto'] = $filename;
+        }
         $produto = Produto::create($data);
         return Response([
           'status' => 0,
@@ -60,11 +75,14 @@ class ProdutoController extends Controller
     public function show(Produto $produto)
     {
         //
+        $produto->viagems;
         return $produto;
     }
 
     /**
      * Show the form for editing the specified resource.
+     * 
+     * 
      *
      * @param  \App\Produto  $produto
      * @return \Illuminate\Http\Response
@@ -76,6 +94,9 @@ class ProdutoController extends Controller
 
     /**
      * Editar um Produto
+     * 
+     * @bodyParam tamanho string Tamanho do produto
+     * @bodyParam nome string Nome do produto
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Produto  $produto

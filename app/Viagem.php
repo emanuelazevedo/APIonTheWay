@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Viagem extends Model
 {
     //
-    protected $fillable = ['origem', 'destino', 'dataInicio', 'dataFim', 'horaInicio', 'horaFim', 'estado', 'user_id', 'produto_id', 'tipo_id', 'preco'];
+    protected $fillable = ['origem', 'destino', 'data', 'horaInicio', 'horaFim', 'estado_id', 'user_id', 'produto_id', 'tipo_id', 'preco'];
 
     public function user()
     {
@@ -19,8 +19,19 @@ class Viagem extends Model
         return $this->belongsTo(Tipo::class);
     }
 
+    public function estado()
+    {
+        return $this->belongsTo(Estado::class);
+    }
+
     public function produto()
     {
-        return $this->belongsTo(Produto::class);
+        return $this->hasMany(Produto::class);
     }
+
+    public function review()
+    {
+        return $this->hasMany(Review::class);
+    }
+    
 }

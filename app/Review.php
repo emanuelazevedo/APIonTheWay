@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Produto extends Model
+class Review extends Model
 {
     //
-    protected $fillable = ['tamanho', 'foto', 'nome', 'viagems_id', 'user_id'];
+    protected $fillable = ['nota', 'comentario', 'viagems_id', 'user_id'];
 
-    public function viagems()
+    public function viagem()
     {
         return $this->belongsTo(Viagem::class);
     }

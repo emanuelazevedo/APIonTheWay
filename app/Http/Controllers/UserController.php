@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 use Validator;
 use Auth;
 
+use Image;
+use App\Review;
+
+
 class UserController extends Controller
 {
     //
@@ -40,6 +44,11 @@ class UserController extends Controller
 
     /**
      * Criar um User
+     * 
+     * @bodyParam Name string required Nome do utilizador
+     * @bodyParam Password string required Password do utilizador
+     * @bodyParam Email string required Email do utilizador
+     * @bodyParam Avatar file Imagem de perfil do utilizador
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -50,23 +59,13 @@ class UserController extends Controller
 
         $data = $request->only(['name', 'email', 'password']);
 
-        // $validator = Validator::make($data,
-        // [
-        //   'name' => 'required|max:225',
-        //   'email' => 'required|email|unique:users',
-        //   'password' => 'required|min:3',
-        // ],
-        // [
-        //   'name.required' => 'O campo nome é obrigatorio',
-        // ]);
-        //
-        // if($validator->fails()){
-        //   return Response([
-        //     'status' => 1,
-        //     'data' =>  $validator->errors()->all(),
-        //     'msg' => 'error'
-        //   ], 400);
-        // }
+        if($request->hasFile('avatar')){
+            $avatar = $request->file('avatar');
+            $filename = time() . "." . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300, 300)->save(public_path('uploads/avatar/' . $filename));
+            
+            $data['avatar'] = $filename;
+        }
 
         $data['password'] = bcrypt($data['password']);
 
@@ -82,6 +81,7 @@ class UserController extends Controller
 
     /**
      * Mostrar um User
+     * 
      *
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
@@ -89,12 +89,17 @@ class UserController extends Controller
     public function show(User $user)
     {
         //
-        $articles = $user->article;
+        $user->produtos;
+        $reviews = Review::where('user_id', $user['id'])->avg('nota');
+
+        $user['media'] = $reviews;
+
         return $user;
     }
 
     /**
      * Show the form for editing the specified resource.
+     * 
      *
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
@@ -106,6 +111,11 @@ class UserController extends Controller
 
     /**
      * Editar um User
+     * 
+     * @bodyParam Name string Nome do utilizador
+     * @bodyParam Password string Password do utilizador
+     * @bodyParam Email string Email do utilizador
+     * @bodyParam Avatar file Imagem de perfil do utilizador
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\User  $user
@@ -113,14 +123,21 @@ class UserController extends Controller
      */
     public function update(UserUpdateRequest $request, User $user)
     {
-        //
-        // return Response(['teste' => 'oi']);
+        
         $data = $request->only(['name', 'email', 'password']);
-
 
         $user->name = $data['name'];
         $user->email = $data['email'];
         $user->password = bcrypt($data['password']);
+
+        if($request->hasFile('avatar')){
+            $avatar = $request->file('avatar');
+            $filename = time() . "." . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300, 300)->save(public_path('uploads/avatar' . $filename));
+            
+            $user->avatar = $filename;
+        }
+
         $user->save();
 
         return Response([
@@ -148,6 +165,7 @@ class UserController extends Controller
         ], 200);
 
     }
+
 
     public function getAuthUser(){
       return Auth::user();

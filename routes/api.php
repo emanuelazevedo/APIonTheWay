@@ -28,3 +28,5 @@ Route::post('viagem/search', 'ViagemController@search');
 Route::resource('tipo', 'TipoController');
 
 Route::resource('produto', 'ProdutoController');
+
+Route::resource('review', 'ReviewController');

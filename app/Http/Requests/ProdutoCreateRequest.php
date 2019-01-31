@@ -27,8 +27,10 @@ class ProdutoCreateRequest extends FormRequest
     {
       return [
         'tamanho' => 'required',
-        'nome' => 'required',
-        'foto' => 'nullable'
+        'nome' => 'required|max:50',
+        'foto' => 'nullable',
+        'viagems_id' => 'required',
+        'user_id' => 'required',
       ];
     }
 
@@ -47,6 +49,9 @@ class ProdutoCreateRequest extends FormRequest
      return[
        'tamanho.required' => 'Tamanho é necessario',
        'nome.required' => 'Nome é necessario',
+       'nome.max' => 'O nome do produto é demasiado comprido',
+       'viagems_id.required' => 'É preciso associar a uma viagem',
+       'user_id.required' => 'É preciso associar a um utilizador',
      ];
     }
 }

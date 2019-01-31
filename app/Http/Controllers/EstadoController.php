@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Tipo;
+use App\Estado;
 use Illuminate\Http\Request;
 
-class TipoController extends Controller
+class EstadoController extends Controller
 {
     /**
-     * Listar todos os Tipos
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -28,7 +28,7 @@ class TipoController extends Controller
     }
 
     /**
-     * Criar um novo tipo de viagem
+     * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -39,12 +39,12 @@ class TipoController extends Controller
     }
 
     /**
-     * Mostrar todos os tipos de viagens
+     * Display the specified resource.
      *
-     * @param  \App\Tipo  $tipo
+     * @param  \App\Estado  $estado
      * @return \Illuminate\Http\Response
      */
-    public function show(Tipo $tipo)
+    public function show(Estado $estado)
     {
         //
     }
@@ -52,40 +52,34 @@ class TipoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Tipo  $tipo
+     * @param  \App\Estado  $estado
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tipo $tipo)
+    public function edit(Estado $estado)
     {
         //
     }
 
     /**
-     * Alterar um tipo de viagem
+     * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Tipo  $tipo
+     * @param  \App\Estado  $estado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tipo $tipo)
+    public function update(Request $request, Estado $estado)
     {
         //
     }
 
     /**
-     * Remover um Tipo
+     * Remove the specified resource from storage.
      *
-     * @param  \App\Tipo  $tipo
+     * @param  \App\Estado  $estado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tipo $tipo)
+    public function destroy(Estado $estado)
     {
         //
-        Tipo::destroy($tipo['id']);
-        return Response([
-          'status' => 0,
-          'data' => $tipo,
-          'msg' => 'ok'
-        ], 200);
     }
 }

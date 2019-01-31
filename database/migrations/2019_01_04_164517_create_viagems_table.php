@@ -19,25 +19,20 @@ class CreateViagemsTable extends Migration
             $table->string('origem');
             $table->string('destino');
 
-            $table->date('dataInicio');
-            $table->date('dataFim');
+            $table->date('data');
 
             $table->time('horaInicio');
             $table->time('horaFim');
-
-            $table->string('estado');
 
             $table->integer('preco')->nullable();
 
             $table->integer('user_id')->unsigned();
             // $table->foreign('user_id')->references('id')->on('users');//campo user_id referencia id da tabela user
 
-            $table->integer('produto_id')->unsigned()->nullable();
-            // $table->foreign('produto_id')->references('id')->on('produtos');//campo produto_id referencia id da tabela produto
-
             $table->integer('tipo_id')->unsigned();
             // $table->foreign('tipo_id')->references('id')->on('tipos');//campo tipo_id referencia id da tabela tipo
 
+            $table->integer('estado_id')->unsigned();
 
             $table->timestamps();
         });

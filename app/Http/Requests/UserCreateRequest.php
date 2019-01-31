@@ -45,9 +45,13 @@ class UserCreateRequest extends FormRequest
 
     public function messages(){
      return[
-       'name.required' => 'Nome é necessario',
-       'email.required' => 'Email é necessario',
-       'password.required' => 'Password é necessaria'
+       'name.required' => 'Nome é obrigatório',
+       'email.required' => 'Email é obrigatório',
+       'password.required' => 'Password é obrigatório',
+       'name.max' => 'O nome não pode ser tão comprido',
+       'email.unique' => 'Este e-mail já se encontra registado no sistema',
+       'email.email' => 'Este campo tem de ser preenchido com um e-mail',
+       'password.min' => 'A password inserida é muito curta',
      ];
     }
 }

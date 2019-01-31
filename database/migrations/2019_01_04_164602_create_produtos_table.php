@@ -22,6 +22,10 @@ class CreateProdutosTable extends Migration
 
             $table->string('foto')->nullable();
 
+            $table->integer('viagems_id')->unsigned();
+
+            $table->integer('user_id')->unsigned();
+
 
             $table->timestamps();
         });
