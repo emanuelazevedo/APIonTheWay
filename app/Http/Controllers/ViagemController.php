@@ -156,6 +156,7 @@ class ViagemController extends Controller
      */
     public function search(Request $request){
         $listaViagens = DB::table('viagems')
+        ->join('users', 'user_id', '=', 'users.id')
         ->where('tipo_id', 1)
         ->where('origem', $request->origem)
         ->where('destino', $request->destino)
