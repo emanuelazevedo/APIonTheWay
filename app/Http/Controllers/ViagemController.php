@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\DB;
 use App\Produto;
 use Image;
 
+use App\Review;
+
 class ViagemController extends Controller
 {
     /**
@@ -163,6 +165,16 @@ class ViagemController extends Controller
         ->where('data', $request->data)
         ->where('horaInicio', $request->horaInicio)
         ->where('horaFim', $request->horaFim)->get();
+
+        $lista = json_decode($listaViagens, true);
+        $listaViagens = array();
+        foreach($lista as $viagem){
+            $reviews = Review::where('user_id', $viagem['user_id'])->avg('nota');
+            $viagem['nota'] = $reviews;
+            $listaViagens[] = $viagem;
+        }
+
+        
 
         return Response(array('listaViagens' => $listaViagens));
     }
