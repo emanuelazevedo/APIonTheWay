@@ -90,6 +90,7 @@ class UserController extends Controller
     {
         //
         $user->produtos;
+        $user->viagems;
         $reviews = Review::where('user_id', $user['id'])->avg('nota');
 
         $user['media'] = $reviews;
