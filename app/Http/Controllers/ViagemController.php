@@ -86,6 +86,19 @@ class ViagemController extends Controller
     public function show(Viagem $viagem)
     {
         //
+        $viagem->user;
+        
+        $user = $viagem['user']['id'];
+        $reviews = Review::where('user_id', $user)->avg('nota');
+        $viagem['user']['nota'] = $reviews;
+        
+        $viagensFin = Viagem::where('user_id', $user)
+                    ->where('estado_id', 3)
+                    ->orWhere('estado_id', 4)
+                    ->count();
+
+        $viagem['user']['totalViagens'] = $viagensFin;
+
         return $viagem;
     }
 
