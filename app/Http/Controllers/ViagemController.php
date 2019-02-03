@@ -171,21 +171,28 @@ class ViagemController extends Controller
      */
     public function search(Request $request){
         $listaViagens = DB::table('viagems')
-        ->join('users', 'user_id', '=', 'users.id')
         ->where('tipo_id', 1)
         ->where('origem', $request->origem)
         ->where('destino', $request->destino)
         ->where('data', $request->data)
         ->where('horaInicio', $request->horaInicio)
-        ->where('horaFim', $request->horaFim)->get();
+        ->where('horaFim', $request->horaFim)
+        // ->leftjoin('users', 'viagems.user_id', "=", 'users.id')
+        ->get();
 
         $lista = json_decode($listaViagens, true);
         $listaViagens = array();
         foreach($lista as $viagem){
+            $user = DB::table('users')
+            ->where('id', $viagem['user_id'])->get();
+            
+            $viagem['user'] = $user;
+
             $reviews = Review::where('user_id', $viagem['user_id'])->avg('nota');
             $viagem['nota'] = $reviews;
             $listaViagens[] = $viagem;
         }
+        
 
         
 
