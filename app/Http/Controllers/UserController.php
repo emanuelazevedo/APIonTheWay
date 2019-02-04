@@ -100,10 +100,11 @@ class UserController extends Controller
             $produto->viagems;
         }
 
-        // foreach($user['viagems'] as $viagems){
-        //     $viagems->produtos;
-        // }
-
+        foreach($user['viagems'] as $key => $viagem){
+            $produtos = Produto::where('viagems_id', $viagem['id'])->get();
+            $user['viagems'][$key]['produto'] = $produtos;
+        }
+        // dd($produtos);
         $user['media'] = $reviews;
 
         return $user;
