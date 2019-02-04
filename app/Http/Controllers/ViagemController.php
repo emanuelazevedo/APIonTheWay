@@ -182,6 +182,7 @@ class ViagemController extends Controller
 
         $lista = json_decode($listaViagens, true);
         $listaViagens = array();
+        
         foreach($lista as $viagem){
             $user = DB::table('users')
             ->where('id', $viagem['user_id'])->get();

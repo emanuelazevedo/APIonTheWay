@@ -24,7 +24,7 @@ class Viagem extends Model
         return $this->belongsTo(Estado::class);
     }
 
-    public function produto()
+    public function produtos()
     {
         return $this->hasMany(Produto::class);
     }

@@ -12,6 +12,9 @@ use Auth;
 use Image;
 use App\Review;
 
+use App\Viagem;
+use App\Produto;
+
 
 class UserController extends Controller
 {
@@ -92,6 +95,14 @@ class UserController extends Controller
         $user->produtos;
         $user->viagems;
         $reviews = Review::where('user_id', $user['id'])->avg('nota');
+
+        foreach($user['produtos'] as $produto){
+            $produto->viagems;
+        }
+
+        // foreach($user['viagems'] as $viagems){
+        //     $viagems->produtos;
+        // }
 
         $user['media'] = $reviews;
 
