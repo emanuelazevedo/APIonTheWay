@@ -9,6 +9,9 @@ use App\Http\Requests\ProdutoUpdateRequest;
 use Validator;
 use Image;
 
+use App\Viagem;
+use App\Estado;
+
 class ProdutoController extends Controller
 {
     /**
@@ -59,6 +62,11 @@ class ProdutoController extends Controller
             $data['foto'] = $filename;
         }
         $produto = Produto::create($data);
+
+        $viagem = Viagem::find($request->viagem_id);
+        $viagem['estados_id'] = 3;
+        $viagem->save();
+        
         return Response([
           'status' => 0,
           'data' => $produto,
