@@ -64,7 +64,7 @@ class ProdutoController extends Controller
         $produto = Produto::create($data);
 
         $viagem = Viagem::find($request->viagem_id);
-        $viagem['estados_id'] = 3;
+        $viagem['estado_id'] = 3;
         $viagem->save();
         
         return Response([
