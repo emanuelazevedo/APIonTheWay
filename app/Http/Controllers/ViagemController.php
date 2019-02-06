@@ -98,6 +98,7 @@ class ViagemController extends Controller
                     ->count();
 
         $viagem['user']['totalViagens'] = $viagensFin;
+        $viagem->estado;
 
         return $viagem;
     }
