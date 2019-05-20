@@ -83,6 +83,9 @@
                 <div class="title m-b-md">
                     Laravel 2
                 </div>
+                <passport-clients></passport-clients>
+                <passport-authorized-clients></passport-authorized-clients>
+                <passport-personal-access-tokens></passport-personal-access-tokens>
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
