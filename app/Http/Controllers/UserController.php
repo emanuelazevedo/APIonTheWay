@@ -31,8 +31,11 @@ class UserController extends Controller
     public function index()
     {
         //
-        $users = User::all();
-        return $users;
+        // $users = User::all();
+        // return $users;
+
+        $user = Auth::user();
+        return $user;
     }
 
     /**
